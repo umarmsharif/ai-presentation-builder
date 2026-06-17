@@ -1,0 +1,76 @@
+{
+  "$schema_notes": "Schema for strategy-deck-builder. Top-level blocks: deck, theme, title_slide, slides[]. density was removed as a filter input; density tags remain on each pattern (metadata) but no longer narrow the picker. Slide volume + audience + archetype inform Claude's per-slide recommendation instead. This is a fictional example.",
+
+  "deck": {
+    "name": "Northwind-Activation-Review",
+    "client": "Northwind (example)",
+    "audience": "CEO + Co-founders",
+    "presenter": "Strategy team",
+    "date": "2026-06-15",
+    "archetype": "diagnostic",
+    "slide_volume": 10,
+    "outputs": ["pptx", "briefing"],
+    "include_appendix": false,
+    "_density_advisory": "Optional. Soft signal for Claude's per-slide recommendation. Accepts: sparse | light | medium | heavy. Does NOT filter the pattern picker. Omit if no preference."
+  },
+
+  "theme": {
+    "palette": {
+      "mode": "default",
+      "primary_hex": null,
+      "match_deck": null
+    },
+    "fonts": {
+      "display": "Charter",
+      "body": "Manrope",
+      "mono": "JetBrains Mono",
+      "fallback": "Calibri"
+    }
+  },
+
+  "title_slide": {
+    "eyebrow": "STRATEGIC REVIEW",
+    "title_lines": ["Closing the", "Activation Gap"],
+    "thesis_label": "THESIS",
+    "thesis_bold": "We don't have an acquisition problem. We have a retention problem.",
+    "thesis_italics": "Stabilise Day-1 first; the funnel compounds from there.",
+    "submission_line": "Submitted to: CEO + Board | 15 min + 10 min Q&A"
+  },
+
+  "slides": [
+    {
+      "breadcrumb": "THE MATH",
+      "title": "Where we are vs where we said we'd be",
+      "context": "Four numbers tell the whole story.",
+      "layout": "stat-row",
+      "source_pick": "library",
+      "footer_note": "Source: product analytics, May 2026",
+      "content": {
+        "cards": [
+          { "value": "467",  "label": "Active today" },
+          { "value": "3,000","label": "Target by Mar 2027", "accent": true },
+          { "value": "11",   "label": "Months remaining" },
+          { "value": "+230", "label": "Required net adds/mo", "amber": true }
+        ]
+      }
+    },
+    {
+      "breadcrumb": "THE CONSTRAINT",
+      "title": "The funnel breaks on Day 1",
+      "context": "Of 100 signups, 7 return on Day 2.",
+      "layout": "activation-hex-funnel",
+      "source_pick": "library",
+      "footer_note": "Source: D1 cohort, 30-cohort recent window",
+      "content": { "hexes": [] }
+    },
+    {
+      "breadcrumb": "CORRELATION",
+      "title": "Three behaviours predict 8x conversion",
+      "context": "We isolated the signal in a 192-day cohort.",
+      "layout": "lift-table",
+      "source_pick": "library",
+      "footer_note": "Source: event analytics, 192-day window",
+      "content": { "rows": [] }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "strategy-deck-builder",
+  "version": "1.0.0",
+  "description": "A Claude skill that builds consulting-grade strategy decks with a v5 Bright White & Pine design system.",
+  "license": "MIT",
+  "author": "Umar Sharif",
+  "scripts": {
+    "example": "node assets/reference-build.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

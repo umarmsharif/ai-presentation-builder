@@ -1,0 +1,14 @@
+.DS_Store
+**/.DS_Store
+node_modules/
+package-lock.json
+**/__pycache__/
+*.pyc
+output/
+*.tmp
+
+# build artifacts (regenerable)
+*.pptx
+*.pdf
+/tmp/
+qa/

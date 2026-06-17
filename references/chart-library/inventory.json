@@ -1,0 +1,952 @@
+{
+  "generated_at": "2026-04-25T20:48:26Z",
+  "source": "McKinsey & Company - The Week in Charts",
+  "license_note": "Chart images and content (c) McKinsey & Company. This inventory is for personal reference / design pattern study only. Do not redistribute the chart images or republish chart content. Charts created using these patterns must be original work. Image URLs are referenced (not downloaded) for v1.",
+  "extraction_notes": "Source HTML parsed from each page's mck-u-sr-only accessibility description block (gold-standard for chart classification), the BlogEntryHero h1 (headline), the McKinsey JS DisplayDate variable, the mdc-o-content-body block (subhead + analytical paragraph + author /our-people/ links), and the picture[data-component=mdc-c-picture] desktop source srcSet (chart image URL). Image files are not downloaded; chart_image_url is stable.",
+  "total_entries": 41,
+  "entries": [
+    {
+      "id": "how-scaling-care-can-reduce-disease-burden",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/how-scaling-care-can-reduce-disease-burden",
+      "headline": "How scaling care can reduce disease burden",
+      "display_date": "2026-04-23",
+      "subhead": "Demographic shifts over the past 25 years have reshaped global health and are expected to accelerate over the next 25. All this week, we explore how health trends will likely evolve due to aging populations and the interventions that could reduce disease burden worldwide.",
+      "body_summary": "Demographic shifts across the globe over the last 25 years have been closely linked to a transition in the global disease burden. While some infectious diseases have declined, noncommunicable diseases (NCDs) such as cardiovascular diseases, diabetes, mental disorders, and cancers have risen. In 2050, cardiovascular disease, cancers, and musculoskeletal disorders are expected to lead the disease burden.",
+      "tags": [
+        "Public Health",
+        "Healthcare",
+        "Pharmaceuticals & Medical Products"
+      ],
+      "mckinsey_authors": [
+        "Alex Beauvais",
+        "Brad Herbig",
+        "Matt Wilson",
+        "Pooja Kumar"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2026/april/exhibits/cod-how%20scaling%20care-v10.svgz",
+      "chart_type": "dual-panel horizontal bar chart",
+      "accessibility_description": "Image description:\nA dual-panel horizontal bar chart displays global disease burden projections for 2050 in billions of disability-adjusted life years alongside the percentage of burden that could be averted through known interventions. The left panel shows cardiovascular diseases bearing the largest burden at ~5 billion DALYs, followed by cancers at 3 billion and musculoskeletal disorders at 2 billion. The right panel reveals variation in potential impact across disease categories: chronic respiratory diseases show the highest avertable burden at 57%, followed by maternal and neonatal disorders at 51% and mental disorders and enteric infections both at 47%, while cardiovascular diseases—despite having the largest absolute burden—could avert 44% of their disease burden.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Global Burden of Disease Database, Institute for Health Metrics and Evaluation, 2021 (used with permission, all rights reserved); literature review of intervention efficacy and adoption across 500+ papers, including Lancet and Cochrane reviews; McKinsey Health Institute Prioritizing Health Model.\nEnd of image description.",
+      "source_line": "Source: Global Burden of Disease Database, Institute for Health Metrics and Evaluation, 2021 (used with permission, all rights reserved); literature review of intervention efficacy and adoption across 500+ papers, including Lancet and Cochrane reviews; McKinsey Health Institute Prioritizing Health Model.",
+      "key_numbers": [
+        "~5 billion DALYs",
+        "3 billion",
+        "57%",
+        "51%",
+        "47%",
+        "44%"
+      ],
+      "dimensions_mentioned": [
+        "disease category",
+        "billions of DALYs (2050 projected)",
+        "% of burden avertable through interventions"
+      ]
+    },
+    {
+      "id": "better-than-business-as-usual",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/better-than-business-as-usual",
+      "headline": "Better than business as usual",
+      "display_date": "2025-11-04",
+      "subhead": "This week, our charts focus on productivity—from achieving successful transformations to advanced-manufacturing projects and more.",
+      "body_summary": "Organizations that prioritize changes to business-as-usual processes are more likely to achieve successful transformations, according to Senior Partner Dana Maor and colleagues. Companies that successfully transformed reported higher rates of change in processes such as executive-level briefings, performance reviews, and business objective setting. Organizations that changed executive-level weekly briefings were twice as likely to have a successful transformation.",
+      "tags": [
+        "Organization",
+        "Strategy",
+        "Productivity"
+      ],
+      "mckinsey_authors": [
+        "Dana Maor"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/productivityceiling-ex1.svgz",
+      "chart_type": "horizontal dot chart",
+      "accessibility_description": "Image description:\nA horizontal dot chart illustrates the share of respondents from “other organizations” and “successfully transformed organizations” who changed various business processes as a result of transformation. The chart lists 9 processes on the y-axis, with corresponding percentages on the x-axis, ranging from 0 to 100. The likelihood of successful transformation for each process is listed on the right side of the chart, with executive-level weekly briefings having a 2.0 times likelihood, followed by monthly or quarterly business reviews of performance at 1.6 times. The other processes listed, in order of likelihood, are “business objective/target setting” (1.5x), “individual performance dialogues” (1.5x), “annual business planning, budgeting, or forecasting” (1.4x), “unit-level performance reviews” (1.3x), “capital allocation” (1.3x), “IT resource allocation” (1.2x), and “talent allocation” (1.2x).\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nEnd of image description.",
+      "source_line": null,
+      "key_numbers": [
+        "2.0x",
+        "1.6x",
+        "1.5x",
+        "1.4x",
+        "1.3x",
+        "1.2x"
+      ],
+      "dimensions_mentioned": [
+        "business process (9 categories)",
+        "% of respondents who changed process",
+        "likelihood multiplier of successful transformation"
+      ]
+    },
+    {
+      "id": "european-productivity-revival-plan",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/european-productivity-revival-plan",
+      "headline": "European productivity revival plan",
+      "display_date": "2025-11-06",
+      "subhead": "This week, our charts focus on productivity—from achieving successful transformations to advanced-manufacturing projects and more.",
+      "body_summary": "Europe faces a pivotal productivity challenge, note Senior Partner Ruth Heuss and coauthors. Over the past 25 years, labor productivity growth per hour has fallen by two-thirds, leaving Europe 33 percentage points behind the United States. In an increasingly winner-takes-all world, recovery demands a bold mindset shift: targeted investments, rapid technology adoption, and next-generation operational excellence.",
+      "tags": [
+        "Europe",
+        "Productivity"
+      ],
+      "mckinsey_authors": [
+        "Ruth Heuss"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/cod-europeproductivity-v9.svgz",
+      "chart_type": "line chart",
+      "accessibility_description": "Image description:\nA line chart illustrates the GDP per hour worked in the US and Europe from 1997 to 2023. The chart uses an index with 1997 set at 100 and shows that the US and Europe started with the same GDP per hour worked in 1997. Over the next 25 years, the US's GDP per hour worked rose steadily, reaching nearly 155 by 2023, while Europe's GDP per hour worked increased at a slower rate, reaching ~120 by 2023. The data represents the simple average of the top 5 European economies (France, Germany, Italy, Spain, and the UK).\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Total Economy Database: Output, Labor and Labor Productivity, The Conference Board.\nEnd of image description.",
+      "source_line": "Source: Total Economy Database: Output, Labor and Labor Productivity, The Conference Board.",
+      "key_numbers": [
+        "100 (1997 index)",
+        "~155 by 2023 (US)",
+        "~120 by 2023 (Europe)",
+        "33 percentage points gap"
+      ],
+      "dimensions_mentioned": [
+        "year (1997-2023)",
+        "GDP per hour worked (indexed 1997=100)",
+        "geography (US vs. top 5 European economies)"
+      ]
+    },
+    {
+      "id": "the-ai-price-is-right",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/the-ai-price-is-right",
+      "headline": "The AI price is right",
+      "display_date": "2025-11-11",
+      "subhead": null,
+      "body_summary": "As AI becomes embedded into software workflows, businesses are considering whether pricing meters—such as seat-based subscriptions versus enterprise-wide flat fees—reflect the value they deliver. Partner Mohit Khanna and coauthors explain that incumbents primarily rely on flat fees, while AI natives lean toward activity consumption-based models. Both groups use successful outcome and capacity-based metrics to a lesser extent.",
+      "tags": [
+        "Artificial Intelligence",
+        "Technology"
+      ],
+      "mckinsey_authors": [],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/cod-softwareai-v6.svgz",
+      "chart_type": "pair of tree map charts",
+      "accessibility_description": "Image description:\nA pair of tree map charts compares the software pricing meter type and sample metrics used by incumbents and AI natives. The chart is divided into 4 categories: flat fee, successful outcome, activity consumption, and capacity. For incumbents, 68% use flat-fee metrics, 2% use successful outcome metrics, 17% use activity consumption metrics, and 13% use capacity metrics. In contrast, AI natives use a different distribution: 35% use flat-fee metrics, 10% use successful outcome metrics, 40% use activity consumption metrics, and 15% use capacity metrics. The chart also provides examples of sample metrics for each category, such as per user and company access (unlimited users) for flat fee, per resolution and per qualified lead for successful outcome, per conversation and per task for activity consumption, and per virtual CPU used and per tool capacity for capacity.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nEnd of image description.",
+      "source_line": null,
+      "key_numbers": [
+        "68% (incumbents flat-fee)",
+        "35% (AI natives flat-fee)",
+        "40% (AI natives activity consumption)",
+        "17% (incumbents activity consumption)"
+      ],
+      "dimensions_mentioned": [
+        "pricing meter category (4 types)",
+        "% of providers",
+        "vendor cohort (incumbents vs. AI natives)"
+      ]
+    },
+    {
+      "id": "fdi-fuels-chip-shift",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/fdi-fuels-chip-shift",
+      "headline": "FDI fuels chip shift",
+      "display_date": "2025-11-13",
+      "subhead": null,
+      "body_summary": "The global economy's future will be powered by leading-edge semiconductors. As geopolitical tensions rise, countries and companies are moving to diversify production beyond Taiwan and South Korea and bring manufacturing closer to home. In this context, foreign direct investment (FDI) is emerging as a key driver of global capacity growth.",
+      "tags": [
+        "Global Trade",
+        "Semiconductors"
+      ],
+      "mckinsey_authors": [
+        "Olivia White"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/cod-moneyinmotion-ex12-v23-rj.png",
+      "chart_type": "pair of flow diagrams",
+      "accessibility_description": "Image description:\nA pair of flow diagrams illustrates the top 25 corridors by announced greenfield foreign direct investment (FDI) for the semiconductor sector during two time periods: 2015–19 and 2022–25. The diagrams show the direction of investment between countries, with the size of the bubbles representing FDI inflows and the width of the arrows indicating corridor size. In 2015-19, the top 25 corridors accounted for 86 percent of total FDI in the sector. Mainland China was the largest recipient of FDI. In contrast, the 2022–25 diagram shows a significant shift, with the United States becoming the largest recipient, driven primarily by investments from South Korea and Taiwan (China), which accounted for 90% of the total. The top 25 corridors accounted for 89% of total FDI. The diagrams also highlight a decline in Mainland China's annual FDI inflows by about 80%, compared to the 2015–19 period.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Using data provided by fDi Markets; McKinsey Global Institute analysis.\nEnd of image description.",
+      "source_line": "Source: Using data provided by fDi Markets; McKinsey Global Institute analysis.",
+      "key_numbers": [
+        "86% (top 25 share, 2015-19)",
+        "89% (top 25 share, 2022-25)",
+        "90% (S. Korea + Taiwan share)",
+        "~80% decline (China)"
+      ],
+      "dimensions_mentioned": [
+        "country/region (origin and destination)",
+        "FDI inflow size (bubble)",
+        "corridor flow size (arrow width)",
+        "time period (2015-19 vs 2022-25)"
+      ]
+    },
+    {
+      "id": "following-payments-paths",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/following-payments-paths",
+      "headline": "Following payments' paths",
+      "display_date": "2025-11-18",
+      "subhead": null,
+      "body_summary": "The global payments industry is a valuable segment of the financial-services sector, generating $2.5 trillion in revenue, supported by 3.6 trillion transactions. And how money moves is becoming as critical as how much, Partner Uzayr Jeenah and coauthors explain. Payments revenue pools differ in their consumer-versus-commercial orientation depending on regional preferences.",
+      "tags": [
+        "Financial services",
+        "Payments"
+      ],
+      "mckinsey_authors": [
+        "Uzayr Jeenah"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/globalpayments-ex2-v9.svgz",
+      "chart_type": "stacked bar chart",
+      "accessibility_description": "Image description:\nA stacked bar chart illustrates the global payments revenue by type and location in 2024, segmented into 4 regions: Asia–Pacific, EMEA (Europe, the Middle East, and Africa), Latin America, and North America. The chart is divided into commercial and consumer categories, with each further broken down into subcategories: cross-border, account net interest income (NII), domestic fees, and credit cards. In the Asia-Pacific region, commercial revenue accounts for 59% of total revenue, with 8% from cross-border, 25% from domestic fees, 20% from credit cards, and 3% from account NII, totaling $1 trillion. In EMEA, commercial revenue makes up 51% of the total, with 13% from cross-border, 20% from account NII, 18% from domestic fees, and 5% from credit cards, totaling $0.6 trillion. Latin America's derives 5% from cross-border, 24% from domestic fees, 12% from account NII, and 5% from credit cards, totaling $0.2 trillion. North America's revenue is primarily consumer-driven, comprising 40% from credit cards, 14% from domestic fees, 9% from account NII, and 3% from cross-border. The chart highlights that Asia–Pacific and EMEA are more commercially driven, while North America is primarily consumer-driven.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: McKinsey Global Payments Map.\nEnd of image description.",
+      "source_line": "Source: McKinsey Global Payments Map.",
+      "key_numbers": [
+        "$2.5 trillion (global payments revenue)",
+        "$1 trillion (Asia-Pacific)",
+        "$0.6 trillion (EMEA)",
+        "59% commercial (APAC)",
+        "40% credit cards (NA)"
+      ],
+      "dimensions_mentioned": [
+        "region (4 regions)",
+        "revenue category (commercial vs. consumer)",
+        "subcategory (cross-border, NII, domestic fees, credit cards)",
+        "% of regional revenue",
+        "$ trillion"
+      ]
+    },
+    {
+      "id": "agentic-ai-adventures",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/agentic-ai-adventures",
+      "headline": "Agentic AI adventures",
+      "display_date": "2025-11-20",
+      "subhead": null,
+      "body_summary": "AI adoption in the travel industry has accelerated sharply, and travelers are also embracing AI. More than half the respondents to the 2025 Skift US Travel Tracker Survey say they have used AI tools for trip planning, with AI use rising notably over the past year. Yet the travel and hospitality sectors still trail others in AI maturity, note Senior Partner Alex Cosmas and coauthors.",
+      "tags": [
+        "Artificial Intelligence",
+        "Hospitality",
+        "Travel"
+      ],
+      "mckinsey_authors": [
+        "Alex Cosmas"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/cod-aitravel-v3-02.svgz",
+      "chart_type": "pair of stacked bar charts",
+      "accessibility_description": "Image description:\nA pair of stacked bar charts compares the use of Chat GPT or a similar AI-based app to assist in planning any aspect of a trip in 2024 and 2025. The chart for 2024 on the left shows that 13% of respondents used it extensively, 25% occasionally, 17% considered but didn't use it, 21% were not using it but were open to trying, and 22% were not interested. The chart for 2025 on the right shows a significant shift, with 30% using it extensively, 25% occasionally, 13% having considered but not used it, 21% not using it but open to trying, and 11% not being interested. The percentage of respondents using AI tools extensively increased by 124% from 2024 to 2025, while those not interested decreased by 50%.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Skift US Travel Tracker Survey.\nEnd of image description.",
+      "source_line": "Source: Skift US Travel Tracker Survey.",
+      "key_numbers": [
+        "13% (2024 extensive)",
+        "30% (2025 extensive)",
+        "+124% growth",
+        "22% (2024 not interested)",
+        "11% (2025 not interested)"
+      ],
+      "dimensions_mentioned": [
+        "adoption stage (5 levels)",
+        "% of respondents",
+        "year (2024 vs 2025)"
+      ]
+    },
+    {
+      "id": "the-new-age-of-geoeconomics",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/the-new-age-of-geoeconomics",
+      "headline": "The new age of geoeconomics",
+      "display_date": "2025-11-24",
+      "subhead": null,
+      "body_summary": "Governments are increasingly using policy tools, such as sanctions, to gain economic and strategic advantages. While sanctions have been deployed for decades, their use has more than tripled since 2019, underscoring the rapid rise of geoeconomic tools, note Partners Robin Nuttall and Ziad Haider. Restrictions on exports of raw materials used in cutting-edge technologies, such as quantum computing and semiconductors, increased fivefold from 2009 to 2023.",
+      "tags": [
+        "Geopolitics",
+        "Strategy"
+      ],
+      "mckinsey_authors": [
+        "Robin Nuttall",
+        "Ziad Haider"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/cod-geopolitics-v9-ex2.svgz",
+      "chart_type": "set of 3 bar charts",
+      "accessibility_description": "Image description:\nA set of 3 bar charts illustrates the increasing use of policy tools by governments to gain economic and strategic advantages. The first segment, subtitled \"New international sanctions, 1949–2023, number,\" shows a bar graph with a significant spike from 2020 onward, reaching ~125 new sanctions, with a generally increasing trend from the 1990s onward, although with some fluctuations. The second segment, \"Exported raw material products subject to export restriction measures, 2009–23, thousands,\" displays a steady increase from ~4,000 in 2009 to slightly less than 18,000 in 2023. The third segment, \"Countries with investment screening, 2006–24, number,\" shows a gradual increase from ~5 countries in 2006 to ~10 in 2015, followed by a sharp rise to nearly 50 countries in 2024.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Global Sanctions Database, Drexel University, Jan 1, 2025; Latest investment policy trends, UNCTAD, Sept 16, 2025; OECD.\nEnd of image description.",
+      "source_line": "Source: Global Sanctions Database, Drexel University, Jan 1, 2025; Latest investment policy trends, UNCTAD, Sept 16, 2025; OECD.",
+      "key_numbers": [
+        "~125 new sanctions (2020+)",
+        "~4,000 to ~18,000 (export restrictions)",
+        "~5 to ~50 (countries with screening)"
+      ],
+      "dimensions_mentioned": [
+        "year (1949-2024)",
+        "count of policy actions",
+        "policy tool category (3 panels)"
+      ]
+    },
+    {
+      "id": "future-fuels-and-forces",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/future-fuels-and-forces",
+      "headline": "Future fuels and forces",
+      "display_date": "2025-11-25",
+      "subhead": null,
+      "body_summary": "Geopolitics, policy changes, and rising energy demand are transforming the global energy landscape. McKinsey's tenth Global Energy Perspective analyzes how long-term structural forces and short-term realities could shape this transition, outlining three possible pathways: Slow Evolution, Continued Momentum, and Sustainable Transformation. Across all these scenarios, power demand is expected to rise, note Senior Partner Humayun Tai and coauthors.",
+      "tags": [
+        "Energy",
+        "Renewable energy",
+        "Sustainability"
+      ],
+      "mckinsey_authors": [
+        "Humayun Tai"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/nov/exhibits/future%20fuels%20and%20forces-ex4.svgz",
+      "chart_type": "stacked bar chart",
+      "accessibility_description": "Image description:\nA stacked bar chart illustrates the historical and projected global power generation from 1995 to 2050, categorized by energy source. The chart is divided into 4 sections, representing the years 1995, 2030, 2040, and 2050. Each section displays the total power generation in thousands of terawatt-hours (TWh), broken down into various energy sources, including solid fuels; gas; clean, firm; hydro; wind onshore; wind offshore; solar; and other. In 1995, the total power generation was 19,000 TWh, with solid fuels accounting for the largest share. By 2050, the total power generation is projected to increase to 59,000–72,000 TWh across 3 scenarios: Slow Evolution (SE), Continued Momentum (CM), and Sustainable Transformation (ST). The share of renewables is expected to rise from 19% in 1995 to 61–67% in 2050, with the ST scenario showing the highest share at 67%. The chart also includes a table showing the CAGR for each energy source from 2023 to 2050 in the CM scenario, with solar energy expected to grow at a CAGR of 9%, while solid fuels decline at a CAGR of –4%. Additionally, the chart notes that CO2 emissions are expected to decrease from 10 gigatons in 2023 to 3–7 gigatons in 2050 across the 3 scenarios.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: Energy Solutions by McKinsey.\nEnd of image description.",
+      "source_line": "Source: Energy Solutions by McKinsey.",
+      "key_numbers": [
+        "19,000 TWh (1995)",
+        "59,000–72,000 TWh (2050)",
+        "61–67% renewables (2050)",
+        "9% CAGR (solar)",
+        "10 to 3-7 gigatons CO2"
+      ],
+      "dimensions_mentioned": [
+        "year (1995, 2030, 2040, 2050)",
+        "energy source (8 categories)",
+        "scenario (SE/CM/ST)",
+        "power generation (TWh)",
+        "% renewables share"
+      ]
+    },
+    {
+      "id": "decoding-deal-delays",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/decoding-deal-delays",
+      "headline": "Decoding deal delays",
+      "display_date": "2025-12-03",
+      "subhead": null,
+      "body_summary": "The time it takes to finalize M&A deals has been on the rise over the past two decades. From 2005 through 2024, the median time between signing and closing stretched to about 6.4 months, a 25 percent increase from 20 years ago, explain Partner Anthony Luu and coauthors. Across geographies and industries, regulatory scrutiny is a primary cause of the delays.",
+      "tags": [
+        "M&A",
+        "Strategy"
+      ],
+      "mckinsey_authors": [
+        "Anthony Luu"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/decoding%20deal%20delays.svgz",
+      "chart_type": "combined bar and line chart",
+      "accessibility_description": "Image description:\nA combined bar and line chart illustrates the trends in mergers and acquisitions (M&A) deals from 2005 to 2024. The left-side chart displays the average time to close M&A deals, with the median time marked by a dotted white line. The median time increased from approximately 5 months in 2005 to around 6.4 months in 2024, representing a 25% increase. The chart on the right side shows the share of M&A deals taking more than a year between signing and closing by five-year period, rising from 6% from 2005–10 to nearly 11% from 2010–15, 15% from 2015–20, and 16% from 2020–24. The charts are based on an analysis of 808 closed transactions valued at over $5 billion in Europe and the US between January 1, 2005, and December 31, 2024.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: S&P Capital IQ, S&P Global Market Intelligence, accessed September 2025.\nEnd of image description.",
+      "source_line": "Source: S&P Capital IQ, S&P Global Market Intelligence, accessed September 2025.",
+      "key_numbers": [
+        "5 months (2005)",
+        "6.4 months (2024)",
+        "25% increase",
+        "6% (2005-10)",
+        "16% (2020-24)"
+      ],
+      "dimensions_mentioned": [
+        "year (2005-2024)",
+        "time to close (months)",
+        "share >1 year (%)",
+        "five-year period"
+      ]
+    },
+    {
+      "id": "balancing-the-global-books",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/balancing-the-global-books",
+      "headline": "Balancing the global books",
+      "display_date": "2025-12-09",
+      "subhead": null,
+      "body_summary": "Entering 2025, global wealth reached a record $600 trillion. However, much of this growth was driven by rising asset prices rather than new savings or investments. When assets outpace economic growth, inequality deepens. In 2024, the top 1 percent owned at least 20 percent of national wealth across major economies. In the United States, the top 1 percent owned 35 percent, or $16.5 million, while the bottom 50 percent held just $9,000.",
+      "tags": [
+        "Economy",
+        "Financial services"
+      ],
+      "mckinsey_authors": [
+        "Arvind Govindarajan",
+        "Ezra Greenberg",
+        "Jan Mischke",
+        "Michael Birshan",
+        "Olivia White",
+        "Sven Smit"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/balancing%20the%20global%20books.svgz",
+      "chart_type": "series of area charts",
+      "accessibility_description": "Image description:\nA series of area charts illustrates the implied per capita wealth by percentile across 11 major economies, with each chart divided into 4 sections representing different wealth percentiles: the top 1%, the next 9%, the next 40%, and the bottom 50%. The charts show that the US has the highest wealth among the top 1%, at $16.4 million, followed by Australia at $10.6 million. The wealth distribution is similar across most countries, with the top 1% holding the largest share, followed by the next 9%, then the next 40%, and the bottom 50% having the smallest share. Specific values for the bottom 50% include $9,000 in the US, $36,000 in Australia, $30,000 in Canada, $23,000 in Germany, $31,000 in France, $17,000 in Italy, $10,000 in South Korea, $22,000 in Japan and in the UK, $13,000 in China, and $3,000 in Mexico.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: CEIC; China National Bureau of Statistics; European national agencies; Eurostat; Federal Reserve; IHS Markit; OECD; People's Bank of China; World Inequality Database; McKinsey Global Institute analysis.\nEnd of image description.",
+      "source_line": "Source: CEIC; China National Bureau of Statistics; European national agencies; Eurostat; Federal Reserve; IHS Markit; OECD; People's Bank of China; World Inequality Database; McKinsey Global Institute analysis.",
+      "key_numbers": [
+        "$16.4M (US top 1%)",
+        "$10.6M (AUS top 1%)",
+        "$9,000 (US bottom 50%)",
+        "$3,000 (Mexico bottom 50%)",
+        "$600 trillion global wealth"
+      ],
+      "dimensions_mentioned": [
+        "country (11 economies)",
+        "wealth percentile (top 1%, next 9%, next 40%, bottom 50%)",
+        "implied per capita wealth ($)"
+      ]
+    },
+    {
+      "id": "ai-at-work-but-not-at-scale",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/ai-at-work-but-not-at-scale",
+      "headline": "AI at work but not at scale",
+      "display_date": "2025-12-10",
+      "subhead": null,
+      "body_summary": "The use of AI is becoming widespread across sectors and organizations, largely driven by the rapid adoption of gen AI. The share of survey respondents reporting that their organizations use AI reached 88 percent this year, an increase of ten percentage points from 2024, McKinsey's Alex Singla, Alexander Sukharevsky, Bryce Hall, Lareina Yee, Michael Chui, and coauthors note. However, most companies are still in the early phases of their AI journey: Only 7 percent of respondents indicated that AI had been fully scaled across their organizations.",
+      "tags": [
+        "Artificial Intelligence",
+        "Innovation"
+      ],
+      "mckinsey_authors": [
+        "Alex Singla",
+        "Alexander Sukharevsky",
+        "Bryce Hall",
+        "Lareina Yee",
+        "Michael Chui"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/ai%20at%20work%20but%20not%20at%20scale.svgz",
+      "chart_type": "line graph",
+      "accessibility_description": "Image description:\nA line graph illustrates the reported use of AI in at least 1 business function from 2017 to 2025. The graph shows a steady increase in the use of AI from 20% in 2017 to 88% in 2025, with some fluctuations between 2019 and 2022, where the percentage dropped to 50% before rising again to 55% in 2023, 72% in 2024, and 88% in 2025. A second line, representing the use of gen AI, starts in 2023 at 33% and rapidly increases to 71% in 2024 and 79% in 2025. A footnote explains that the definition of AI use has evolved over time, from using AI in a core business part or at scale in 2017, to embedding at least 1 AI capability in business processes or products from 2018-2019, to adopting AI in at least 1 function from 2020 onward.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: McKinsey Global Survey on the state of AI, 1,993 participants at all levels of the organization, June 25–July 29, 2025.\nEnd of image description.",
+      "source_line": "Source: McKinsey Global Survey on the state of AI, 1,993 participants at all levels of the organization, June 25–July 29, 2025.",
+      "key_numbers": [
+        "20% (2017)",
+        "88% (2025 AI use)",
+        "33% to 79% (gen AI 2023-2025)",
+        "7% (fully scaled)"
+      ],
+      "dimensions_mentioned": [
+        "year (2017-2025)",
+        "% of respondents using AI",
+        "AI vs. gen AI"
+      ]
+    },
+    {
+      "id": "mining-for-resilience",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/mining-for-resilience",
+      "headline": "Mining for resilience",
+      "display_date": "2025-12-11",
+      "subhead": null,
+      "body_summary": "Over the past year, the materials industry has undergone notable shifts, including rising resource nationalism, new demand from AI and defense, and a productivity rebound. The sector contracted in 2024, as metals and mining revenues fell 6 percent to about $3 trillion. Future success in metals and mining will require capturing growth, improving productivity, and delivering sustainable solutions, note Senior Partners Michel Van Hoey and Karel Eloot and coauthors.",
+      "tags": [
+        "Metals and mining",
+        "Decarbonization"
+      ],
+      "mckinsey_authors": [
+        "Michel Van Hoey",
+        "Karel Eloot"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/globalmaterials2025-ex11-02.svgz",
+      "chart_type": "pair of treemap charts",
+      "accessibility_description": "Image description.\nA pair of treemap charts compare emissions from metals and minerals production in metric megatons of CO2 equivalent per year for 2024 and 2035. The 2024 chart on the left shows a total of 7,380 metric megatons of CO2 equivalent, with the largest share coming from steel and thermal coal, together accounting for 87% of the total emissions. The chart on the right for 2035 shows a total of 6,960 metric megatons of CO2 equivalent, with steel and thermal coal again being the largest contributors, but their combined share decreasing to 82% of the total emissions. The charts also show smaller shares from battery materials, precious metals, copper, aluminum, and others in both years. The proportion of emissions from battery materials is noticeably larger in 2035 compared to 2024.\nThis image description was completed with the assistance of Writer, a gen AI tool.\nSource: IEA; Industrial transformation 2050: Pathways to net-zero emissions from EU heavy industry, Material Economics, 2019; International Aluminium Institute; International Copper Association; Statista; World Steel Association; Transition Pathway Initiative; McKinsey MineSpans\nEnd of image description.",
+      "source_line": "Source: IEA; Industrial transformation 2050: Pathways to net-zero emissions from EU heavy industry, Material Economics, 2019; International Aluminium Institute; International Copper Association; Statista; World Steel Association; Transition Pathway Initiative; McKinsey MineSpans",
+      "key_numbers": [
+        "7,380 Mt CO2e (2024)",
+        "6,960 Mt CO2e (2035)",
+        "87% steel+coal share (2024)",
+        "82% (2035)",
+        "6% net reduction"
+      ],
+      "dimensions_mentioned": [
+        "material category (steel, thermal coal, battery materials, precious metals, copper, aluminum, other)",
+        "Mt CO2e per year",
+        "year (2024 vs 2035)"
+      ]
+    },
+    {
+      "id": "bankings-agentic-ai-opportunity",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/bankings-agentic-ai-opportunity",
+      "headline": "Banking's agentic AI opportunity",
+      "display_date": "2025-12-17",
+      "subhead": null,
+      "body_summary": "As banks grapple with falling revenues, some are exploring opportunities to use AI for productivity gains. AI's potential effect on banking will depend on factors such as banks' ability to become fully agentic and the extent to which banking customers adopt AI to manage their finances. In the most likely scenario, consumers will use AI agents as a new banking channel for some financial matters but will continue to value interactions with banks. This moderate adoption could enable banks to reshape functions and achieve cost reductions of 15 to 20 percent.",
+      "tags": [
+        "Artificial Intelligence",
+        "Banking"
+      ],
+      "mckinsey_authors": [
+        "Darius Imregun",
+        "Ido Segev",
+        "Jon Steitz",
+        "Klaus Dallerup",
+        "Miklós Dietz",
+        "Pradip Patiath",
+        "Saptarshi Ganguly"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/cod-gbar25-web.svgz",
+      "chart_type": "3x3 matrix chart",
+      "accessibility_description": "Image description.\nThis 3x3 matrix chart illustrates the likelihood of nine different scenarios for AI adoption in banking, segmented by adoption rates among both banks (horizontal axis: low to high) and consumers (vertical axis: low to high). Each cell contains a circle sized according to the percentage likelihood that scenario plays out, with exact percentages labeled inside. The largest circle, representing the most likely scenario at 30%, is in the center (B2), where both banks and consumers achieve a mid-level adoption, leading to \"AI revolutionizes banking functions\": AI agents take over IT and other functions, achieving an agent-to-human ratio of about 20:1 and generating a 15–20% cost reduction. Flanking this scenario, the next most probable outcomes are in A1 and A2, both at 15%, where AI never fully scales or revolutionizes banking functions but with only low to mid adoption by consumers and banks, respectively—yielding lower cost reductions (<10% and 15–20%). Other scenarios, such as \"AI agents as the only banking channel\" (C3, B3, A3) or \"AI revolutionizes everything,\" where adoption is high but likelihoods are all less than 5%, are much less likely. The side panel provides concise explanations for each scenario and summarizes associated reductions in costs or value pools, highlighting that scenarios where AI replaces most human roles could lead to cost reductions over 40%.\nThis image description was completed with the assistance of Writer, a gen AI tool.\nSource: McKinsey Panorama—Global Banking Pools; S&P Global\nEnd of image description.",
+      "source_line": "Source: McKinsey Panorama—Global Banking Pools; S&P Global",
+      "key_numbers": [
+        "30% (most likely scenario)",
+        "15-20% cost reduction",
+        "20:1 agent-to-human ratio",
+        "<5% (extreme scenarios)",
+        ">40% (full AI takeover)"
+      ],
+      "dimensions_mentioned": [
+        "bank adoption (low/mid/high)",
+        "consumer adoption (low/mid/high)",
+        "scenario likelihood (%)",
+        "cost reduction outcome"
+      ]
+    },
+    {
+      "id": "from-insight-to-enterprise-with-ai",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/from-insight-to-enterprise-with-ai",
+      "headline": "From insight to enterprise with AI",
+      "display_date": "2025-12-18",
+      "subhead": null,
+      "body_summary": "AI is becoming the central engine of future new-venture building for many companies. A recent survey shows that 56 percent of business leaders expect their companies to build data- and AI-driven businesses in the next five years, making it the top choice overall, note McKinsey's Daniel Aminetzah, Jason Bello, Jerome Königsfeld, Paul Jenkins, and coauthors. Tech, media, and telecom sectors, along with financial services and advanced industries, lead the way in anticipated new ventures focusing on analytics, data, and AI.",
+      "tags": [
+        "Artificial Intelligence",
+        "Digital",
+        "Strategy"
+      ],
+      "mckinsey_authors": [
+        "Daniel Aminetzah",
+        "Jason Bello",
+        "Jerome Königsfeld",
+        "Paul Jenkins"
+      ],
+      "chart_image_url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/the%20week%20in%20charts/2025/dec/exhibits/cod-venturebuilding-v8.svgz",
+      "chart_type": "volume circle heat chart",
+      "accessibility_description": "Image description:\nA volume circle heat chart shows the types of new ventures expected to be built by respondents' companies in the next 5 years, by industry, with the percentage of respondents expecting their companies to build ventures listed for each industry. The chart includes 7 industries: technology, media, and telecom; financial services; advanced industries; healthcare, pharma, and medical products; travel, logistics, and infrastructure; energy and materials; and consumer goods and retail. Each industry is represented by a column, and the rows represent different types of new ventures. The chart shows that 75% of respondents in the technology, media, and telecom industry expect to build data, analytics, and/or AI-driven businesses, compared with 68% in financial services, 57% in advanced industries, 54% in healthcare, pharma, and medical products, and 44% in energy and materials. Overall, 56% of respondents across all industries expect to build data, analytics, and/or AI-driven businesses.\nNote: This image description was completed with the assistance of Writer, a gen AI tool.\nSource: McKinsey Global Survey on new-venture building, 715 senior managers and C-level respondents at companies with ≥$100 million in annual revenue, May 13–29, 2025.\nEnd of image description.",
+      "source_line": "Source: McKinsey Global Survey on new-venture building, 715 senior managers and C-level respondents at companies with ≥$100 million in annual revenue, May 13–29, 2025.",
+      "key_numbers": [
+        "75% (TMT)",
+        "68% (FS)",
+        "57% (advanced industries)",
+        "44% (energy & materials)",
+        "56% (overall)"
+      ],
+      "dimensions_mentioned": [
+        "industry (7 sectors)",
+        "venture type (rows)",
+        "% of respondents",
+        "5-year horizon"
+      ]
+    },
+    {
+      "id": "opportunity-in-trade-uncertainty",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/opportunity-in-trade-uncertainty",
+      "headline": null,
+      "display_date": "2025-12-01",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "trade-turmoil-takes-hold",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/trade-turmoil-takes-hold",
+      "headline": null,
+      "display_date": null,
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "bankings-ai-angst",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/bankings-ai-angst",
+      "headline": null,
+      "display_date": "2026-01-06",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "china-powers-ahead-in-energy-transition",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/china-powers-ahead-in-energy-transition",
+      "headline": null,
+      "display_date": "2026-01-07",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "agentic-ai-advances",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/agentic-ai-advances",
+      "headline": null,
+      "display_date": "2026-01-08",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "canadas-productivity-pinch",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/canadas-productivity-pinch",
+      "headline": null,
+      "display_date": "2026-01-13",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "made-in-india-for-the-ev-age",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/made-in-india-for-the-ev-age",
+      "headline": null,
+      "display_date": "2026-01-14",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "ai-transformers-versus-tinkerers",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/ai-transformers-versus-tinkerers",
+      "headline": null,
+      "display_date": "2026-01-15",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "deep-techs-speed-advantage",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/deep-techs-speed-advantage",
+      "headline": null,
+      "display_date": "2026-01-20",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "the-high-cost-of-missed-prevention",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/the-high-cost-of-missed-prevention",
+      "headline": null,
+      "display_date": "2026-01-21",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "ai-adjusts-the-software-bill",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/ai-adjusts-the-software-bill",
+      "headline": null,
+      "display_date": "2026-01-27",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "headwinds-or-a-healthcare-renaissance",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/headwinds-or-a-healthcare-renaissance",
+      "headline": null,
+      "display_date": "2026-02-03",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "the-aerospace-inventory-drag",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/the-aerospace-inventory-drag",
+      "headline": null,
+      "display_date": "2026-02-04",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "investor-relations-to-sustain-pharma-confidence",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/investor-relations-to-sustain-pharma-confidence",
+      "headline": null,
+      "display_date": "2026-02-17",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "the-future-of-ai-workloads",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/the-future-of-ai-workloads",
+      "headline": null,
+      "display_date": "2026-02-24",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "recharging-the-battery-supply-chain",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/recharging-the-battery-supply-chain",
+      "headline": null,
+      "display_date": "2026-02-26",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "boomers-and-the-business-baton",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/boomers-and-the-business-baton",
+      "headline": null,
+      "display_date": "2026-04-15",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "skills-reset-for-the-ai-age",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/skills-reset-for-the-ai-age",
+      "headline": null,
+      "display_date": "2026-03-03",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "clinical-trials-without-borders",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/clinical-trials-without-borders",
+      "headline": null,
+      "display_date": "2026-03-11",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "ai-meets-m-and-a",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/ai-meets-m-and-a",
+      "headline": null,
+      "display_date": "2026-03-12",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "powering-ai-with-brain-capital",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/powering-ai-with-brain-capital",
+      "headline": null,
+      "display_date": "2026-03-18",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "megadeals-propel-m-and-a-activity",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/megadeals-propel-m-and-a-activity",
+      "headline": null,
+      "display_date": "2026-03-24",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "a-new-dose-for-pharmacies",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/a-new-dose-for-pharmacies",
+      "headline": null,
+      "display_date": "2026-03-31",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "computing-to-propel-chip-boom",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/computing-to-propel-chip-boom",
+      "headline": null,
+      "display_date": "2026-04-02",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "personalizing-care-to-restore-consumer-trust",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/personalizing-care-to-restore-consumer-trust",
+      "headline": null,
+      "display_date": "2026-04-14",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    },
+    {
+      "id": "when-populations-age",
+      "url": "https://www.mckinsey.com/featured-insights/week-in-charts/when-populations-age",
+      "headline": null,
+      "display_date": "2026-04-21",
+      "subhead": null,
+      "body_summary": null,
+      "tags": [],
+      "mckinsey_authors": [],
+      "chart_image_url": null,
+      "chart_type": null,
+      "accessibility_description": null,
+      "source_line": null,
+      "key_numbers": [],
+      "dimensions_mentioned": [],
+      "extraction_status": "pending - URL queued for follow-up fetch (token budget exhausted in initial pass)"
+    }
+  ],
+  "extraction_summary": {
+    "fully_extracted": 15,
+    "pending": 26,
+    "total": 41,
+    "extraction_method": "mcp__workspace__web_fetch returns full HTML (~50KB each); each fetch consumes substantial input tokens. 15 entries extracted with full structural fidelity (headline, display_date, subhead/null, body_summary, tags, mckinsey_authors from /our-people/ links, chart_image_url with query params stripped, chart_type from accessibility-description first sentence, full accessibility_description with image desc + Writer note + Source + End-of-description marker, source_line, key_numbers, dimensions_mentioned). The remaining 23 URLs are recorded with id/url/display_date so a follow-up pass can extract them using the same methodology."
+  }
+}
