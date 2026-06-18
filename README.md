@@ -19,12 +19,13 @@ Most AI deck tools give you generic, slop-looking slides: cream backgrounds, one
 
 ## The design system
 
-A bright near-white ground (`FCFCFA`) and espresso-ink text are locked; the **accent colour and display font are chosen per deck** in the brief. The defaults are a deep-pine accent (`12564A`) with the Charter display serif over a Manrope body, but you pick from a vetted set:
+Every deck picks one of **eight curated themes** — each a complete, taste-vetted palette (ground, neutrals, accent, default font), not just an accent on a fixed ground:
 
-- **Accent:** Pine (default), Slate Blue, Oxblood, or any brand hex you supply. Only the accent and its tints change — the bright ground and cool neutrals stay fixed.
-- **Display font:** Charter (default), Palatino, Iowan Old Style, Baskerville, or an all-sans Manrope Bold. Manrope always carries the body copy and data.
+- **Light:** Bright White & Pine (default), Slate, Oxblood, Solarized, Paper, Mono.
+- **Dark:** Ink (cool charcoal), Midnight (navy + gold).
+- **Fonts:** eight vetted display faces — Charter (default), Palatino, Iowan Old Style, Baskerville, Hoefler Text, Cochin, Optima, Manrope Bold (all-sans). Body is always Manrope; pick any per deck.
 
-Emphasis comes from type weight, hairlines, and whitespace, never a coloured bar down one edge. The system strips the patterns that now read as AI-design tells: warm cream grounds, a single font, eyebrow pills, oversized section numerals.
+What's locked is *taste*, not one look: every theme is one accent, cohesive neutrals, emphasis by weight, hairline, and whitespace — no dark-mode glow, no generic cream, no rainbow, no gradient. For brand-locked work, supply a hex to override the chosen theme's accent. Full token sets and the dark-theme semantics are in [`references/design_system.md`](references/design_system.md).
 
 `assets/reference-build.js` is a complete, render-tested worked example. Run it to see the system:
 

@@ -392,8 +392,9 @@ function lintAntiSlop() {
   }
   const src = BUILD.src;
 
-  // ── Banned-palette hexes — AI-slop palette + retired v4 surface.
-  // Means the file wasn't migrated to v5 ("Bright White & Pine").
+  // ── Banned-palette hexes — the AI-slop palette + retired v4 hexes.
+  // Themes vary the ground/accent freely (see design_system.md §1); only these
+  // specific tells are banned, not non-bright grounds.
   const BANNED_HEXES = [
     // purple / violet (the classic AI-slop accent)
     "7C3AED", "8B5CF6", "A855F7", "6D28D9",
@@ -406,7 +407,7 @@ function lintAntiSlop() {
     const re = new RegExp(`#?${hex}\\b`, "i");
     if (re.test(src)) {
       note("WARN", "Anti-slop", `Banned palette hex #${hex} in build`,
-        "AI-slop purple/violet or retired v4 cream/burgundy — migrate to v5 pine on bright surface");
+        "AI-slop purple/violet or a retired v4 hex — use one of the curated themes in design_system.md §1");
     }
   });
   // Gradient on text / any linear-gradient — v5 uses solid ink/accent only.

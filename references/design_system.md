@@ -18,34 +18,36 @@ The system: a bright near-white ground, a single pine accent used sparingly, a d
 
 ---
 
-## 1. Palette
+## 1. Themes
 
-A single accent plus a cool neutral system. One accent. One family of neutrals. Never introduce a third colour lightly.
+The deck picks ONE of eight curated, anti-slop themes (set via `inputs.theme`; default `bright-white-pine`). A theme is a **complete, taste-vetted palette** — ground, neutrals, accent, and a default display font — not just an accent on a fixed ground. What is locked is *taste*, not one look: every theme is one-accent, cohesive-neutral, emphasis by weight/hairline/whitespace, no dark-mode glow, no rainbow, no gradient. For brand-locked work, `inputs.brand.primary_hex` overrides the chosen theme's accent.
 
-### Primary (the accent)
+### The eight themes
 
-Supplied per deck via `inputs.brand.primary_hex`. When no client hex is given it defaults to **deep pine `12564A`** — not the old burgundy, and deliberately not the purple/violet/cyan "AI palette." The accent is client-variable; everything else is locked.
-
-Derived values computed from primary:
-
-| Token | How it's derived | Purpose |
-|-------|------------------|---------|
-| `accent` | input hex (default pine `12564A`) | The one emphasis colour: active states, key labels, the single element the eye should hit first |
-| `accentDark` | accent × ~0.7 luminance (`0C3D34` for pine) | Deep fills, accent-on-accent layering |
-| `tint` | accent at ~8% on white (`E6EFEA` for pine) | Soft callout fills — destination panels, gentle highlights |
-
-### Vetted accent schemes (the Step 1 colour question)
-
-The accent is asked per deck in the Step 1 brief; pick by intent. The bright-white ground and the cool neutrals never change — only the accent and its derived `accentDark` / `tint` / `tint_border`.
-
-| Scheme | accent | accentDark | tint | tint_border | Intent |
+| Theme | ground | ink (text) | accent | default font | mode |
 |---|---|---|---|---|---|
-| **Pine** (default) | `12564A` | `0C3D34` | `E6EFEA` | `C9DBD2` | calm, modern, growth / sustainability |
-| **Slate blue** | `1F3A5F` | `13263F` | `E7ECF2` | `CBD5E2` | corporate, finance, conservative / trust |
-| **Oxblood** | `6E1423` | `4E0E19` | `F3E7E9` | `E2CCD1` | formal, establishment, classic consulting (tint leans pink — warm it if used) |
-| **Client hex** | `inputs.brand.primary_hex` | ~70% luminance | ~8% on white | derived | brand-locked client work, or "match deck X from library" |
+| **bright-white-pine** (default) | `FCFCFA` | `1A1A1A` | `12564A` | Charter | light |
+| **slate** | `FBFCFD` | `16202B` | `1F3A5F` | Iowan Old Style | light |
+| **oxblood** | `FCFAF9` | `241A1A` | `6E1423` | Baskerville | light |
+| **solarized** | `FDF6E3` | `073642` | `268BD2` | Optima | light |
+| **paper** | `F7F4EF` | `2A2724` | `A8552F` | Cochin | light |
+| **mono** | `FFFFFF` | `121212` | `121212` | Charter | light |
+| **ink** | `15181C` | `F1F4F6` | `5FB89E` | Palatino | **dark** |
+| **midnight** | `121826` | `EEF2F8` | `E0A93B` | Hoefler Text | **dark** |
 
-Set the four tokens in the build from the chosen row. Default is Pine, but every deck asks.
+The full token set per theme (`panel`, `line`, `mute`, `body`, `tint`, `tintBorder`, the semantic tokens, `accentDark`) lives in the build token block — `build-helpers.md` §1.1, render-tested in `assets/reference-build.js`.
+
+### Semantic tokens (what makes dark themes work)
+
+`INK` is the **text** colour (dark on light themes, light on dark). Four extra tokens carry what `INK`/`WH` used to hardcode, so a clean token swap is all a theme needs — no per-recipe rework:
+
+- `STRIP` / `ON_STRIP` — the emphasis-bar fill + its text. Light themes: near-black bar, white text. Dark themes: inverts to a light bar with dark text.
+- `ON_ACCENT` / `ON_ACCENT_MUTE` — text on an accent fill. White on the dark accents (pine/slate/oxblood/solarized/paper/mono), dark on the light accents (Ink's teal, Midnight's gold).
+- `MUTEFILL` — the muted/secondary bar fill (a neutral that reads on the theme's ground).
+
+### Fonts
+
+Eight vetted display faces (body is always Manrope): **Charter** (default), Palatino, Iowan Old Style, Baskerville, Hoefler Text, Cochin, Optima, and **Manrope Bold** (all-sans). All macOS-installed and render-tested in the pptxgenjs→LibreOffice pipeline. Each theme ships a default; override per deck via `inputs.brand.font_display` (`DISPLAY_BOLD=true` for the all-sans pick). Stay off the overused list (Inter, Roboto, Fraunces, Geist, Plus Jakarta, Space Grotesk).
 
 ### Neutrals (always the same — v5 cool)
 

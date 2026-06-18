@@ -64,44 +64,42 @@
 
 ## 1. Design System (v5 Bright White & Pine)
 
-### 1.1 Palette (locked — Bright White & Pine, v5 June 2026)
+### 1.1 Themes & palette (8 curated themes — June 2026)
+
+The deck picks ONE of eight curated, anti-slop themes (set via `inputs.theme`, default `bright-white-pine`). Each theme is a complete, taste-vetted palette. The token NAMES never change, so every helper and pattern below is theme-agnostic. Dark themes (`ink`, `midnight`) work because four semantic tokens — `STRIP`/`ON_STRIP` (emphasis bar + its text) and `ON_ACCENT`/`ON_ACCENT_MUTE` (text on an accent fill) — carry the fills and reversed text that `INK`/`WH` used to hardcode. The full per-theme token sets and the gallery live in `design_system.md` §1; `assets/reference-build.js` is the render-tested executable.
 
 ```js
-// Primary (accent is client-variable; defaults to pine when no brand hex is supplied)
-const ACCENT       = "12564A";   // Deep pine — the one emphasis colour: key labels, the eye-landing element
-const ACCENT_DK    = "0C3D34";   // Darker pine — deep fills, accent-on-accent layering
+// ── Themes (curated, anti-slop) — one per deck; default bright-white-pine ─────
+const THEMES = {
+  "bright-white-pine": { surface:"FCFCFA", ink:"1A1A1A", body:"45474A", mute:"8A8D90", line:"DADEDC", panel:"F2F4F3", accent:"12564A", accentDark:"0C3D34", tint:"E6EFEA", tintBorder:"C9DBD2", strip:"1A1A1A", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"E6EFEA", muteFill:"C2CDC8", font:"Charter", displayBold:false },
+  "slate":            { surface:"FBFCFD", ink:"16202B", body:"44505E", mute:"8893A0", line:"DCE3EA", panel:"EDF1F5", accent:"1F3A5F", accentDark:"13263F", tint:"E7ECF2", tintBorder:"CBD5E2", strip:"16202B", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"E7ECF2", muteFill:"C4D0DC", font:"Iowan Old Style", displayBold:false },
+  "oxblood":          { surface:"FCFAF9", ink:"241A1A", body:"4A3F3F", mute:"948A88", line:"E8E0DC", panel:"F4EEEB", accent:"6E1423", accentDark:"4E0E19", tint:"F3E7E9", tintBorder:"E2CCD1", strip:"241A1A", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"F3E7E9", muteFill:"D8C9C6", font:"Baskerville", displayBold:false },
+  "solarized":        { surface:"FDF6E3", ink:"073642", body:"586E75", mute:"93A1A1", line:"EEE8D5", panel:"F4EDD9", accent:"268BD2", accentDark:"1A6BA8", tint:"E7EEF2", tintBorder:"C9DCEA", strip:"073642", onStrip:"FDF6E3", onAccent:"FFFFFF", onAccentMute:"E7EEF2", muteFill:"D7D2BF", font:"Optima", displayBold:false },
+  "paper":            { surface:"F7F4EF", ink:"2A2724", body:"54504A", mute:"938E85", line:"E6E0D6", panel:"EFE9E0", accent:"A8552F", accentDark:"7E3D20", tint:"F2E7DD", tintBorder:"E0CDBD", strip:"2A2724", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"F2E7DD", muteFill:"D9CFC0", font:"Cochin", displayBold:false },
+  "mono":             { surface:"FFFFFF", ink:"121212", body:"3C3C3C", mute:"8C8C8C", line:"E4E4E4", panel:"F5F5F5", accent:"121212", accentDark:"000000", tint:"EDEDED", tintBorder:"D8D8D8", strip:"121212", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"D8D8D8", muteFill:"CFCFCF", font:"Charter", displayBold:false },
+  "ink":              { surface:"15181C", ink:"F1F4F6", body:"C0C7CE", mute:"88909A", line:"2A3038", panel:"1D2228", accent:"5FB89E", accentDark:"3E9E84", tint:"18302B", tintBorder:"2F5A4F", strip:"F1F4F6", onStrip:"15181C", onAccent:"0C2B24", onAccentMute:"0C2B24", muteFill:"39443F", font:"Palatino", displayBold:false },
+  "midnight":         { surface:"121826", ink:"EEF2F8", body:"B7C0CF", mute:"7E8A9C", line:"232C3D", panel:"19212F", accent:"E0A93B", accentDark:"B5841F", tint:"1E2A3F", tintBorder:"38466A", strip:"EEF2F8", onStrip:"121826", onAccent:"1A1407", onAccentMute:"1A1407", muteFill:"32404F", font:"Hoefler Text", displayBold:false },
+};
+const T = THEMES[(typeof inputs !== "undefined" && inputs.theme) || "bright-white-pine"];
 
-// Neutrals (cool — replaces the warm espresso family)
-const INK          = "1A1A1A";   // Near-black — headlines, dark card backgrounds, primary text
-const BODY         = "45474A";   // Cool slate — body text, table content
-const MUTE         = "8A8D90";   // Cool grey — secondary labels, footnotes, source lines, page numbers
-const LINE         = "DADEDC";   // Hairline borders, grid lines, table dividers, the header rule
-const LINE_SOFT    = "E8E3D6";   // Soft dividers, card borders
+// Palette tokens — populated from the chosen theme (names unchanged downstream)
+const ACCENT = T.accent, ACCENT_DK = T.accentDark;          // the one emphasis colour (+ its dark)
+const INK = T.ink, BODY = T.body, MUTE = T.mute, LINE = T.line;  // text + hairlines (INK = text vs ground)
+const SURFACE = T.surface, PANEL = T.panel, WH = "FFFFFF";  // ground, card fill, pure white
+const TINT = T.tint, TINT_BORDER = T.tintBorder;            // the soft callout strip
+// Semantic tokens that make dark themes work (use these for fills + reversed text):
+const STRIP = T.strip, ON_STRIP = T.onStrip;                // emphasis bar fill + its text (inverts on dark)
+const ON_ACCENT = T.onAccent, ON_ACCENT_MUTE = T.onAccentMute; // text on an ACCENT fill (white on dark accents, dark on light)
+const MUTEFILL = T.muteFill;                                // muted/secondary bar fill
 
-// Backgrounds
-const SURFACE      = "FCFCFA";   // Bright near-white — the page ground (was warm cream; do not reintroduce cream)
-const PANEL        = "F2F4F3";   // Faint cool tint — card backgrounds, soft fills (barely off the ground)
-const BG_3         = "F0EBE0";   // Deeper warm fill — section header rows, alternating rows
-const WH           = "FFFFFF";   // Active fills, contrast text on dark
+// Theme-agnostic extras (unchanged)
+const LINE_SOFT = "E8E3D6", BG_3 = "F0EBE0";                // soft dividers, alternating rows
+const G = "2F7A55", A = "B07D2B", R = "B23A2E";             // semantic: good / amber / risk
+const NAVY = "2B3540", TEAL = "0E7490";                     // swimlane role lanes
 
-// Semantic
-const G            = "2F7A55";   // Positive deltas, paid/success states (a green distinct from the pine accent)
-const A            = "B07D2B";   // Brass — warning, secondary direction marks, intermediate values, "borderline"
-const R            = "B23A2E";   // Clay-red — negative deltas, below-target, High risk severity
-
-// Role colours (lifecycle / swimlane grids)
-const NAVY         = "2B3540";   // Cool slate-blue — secondary role lane
-const TEAL         = "0E7490";   // Legacy — Training Mentors path; still usable but not in core palette
-
-// Surface accents (the pine-tint callout strip)
-const TINT         = "E6EFEA";   // Pine tint at ~8% on white — soft callout fills, destination panels
-const TINT_BORDER  = "C9DBD2";   // Subtle border for TINT surfaces
-
-// Type families (the v5 display + body pairing)
-const DISPLAY = "Charter", DISPLAY_BOLD = false, FONT = "Manrope";
-// headline face — set per Step 1 brief (default Charter). All-sans pick: DISPLAY="Manrope", DISPLAY_BOLD=true.
-// DISPLAY carries titles, section identity, large editorial numerals. FONT (Manrope) carries
-// labels, body copy, tracked-caps, all data numerals.
+// Type — body always Manrope; display font = theme default, overridable per deck
+const DISPLAY = (typeof inputs !== "undefined" && inputs.brand && inputs.brand.font_display) || T.font;
+const DISPLAY_BOLD = T.displayBold, FONT = "Manrope";
 ```
 
 **Scalpel rule:** ACCENT used sparingly — one element per slide as the eye-landing point. Never fill large card areas with ACCENT. Use INK for dark cards. Use PANEL for light cards.
