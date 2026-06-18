@@ -17,9 +17,14 @@ Most AI deck tools give you generic, slop-looking slides: cream backgrounds, one
 - **Builds real, editable slides.** A Node/pptxgenjs pipeline writes the `.pptx`. Bars are hand-drawn so they survive the PowerPoint → Google Slides round-trip. Charts follow honesty rules (no 3D, y-axis at zero, label lines direct, logical bar order).
 - **Reviews before it ships.** A render-and-look QA loop plus a static slop linter, and an optional pre-flight gate via the sibling [flight-check](https://github.com/analystacademy/flight-check) skill.
 
-## The design system — v5 Bright White & Pine
+## The design system
 
-One bright near-white ground (`FCFCFA`), one deep-pine accent (`12564A`), espresso-ink text, a per-deck display serif (default Charter) paired with a Manrope body. Emphasis comes from type weight, hairlines, and whitespace, never from a coloured bar down one edge. It was built to strip the patterns that now read as AI-design tells: warm cream grounds, a single font, eyebrow pills, oversized section numerals.
+A bright near-white ground (`FCFCFA`) and espresso-ink text are locked; the **accent colour and display font are chosen per deck** in the brief. The defaults are a deep-pine accent (`12564A`) with the Charter display serif over a Manrope body, but you pick from a vetted set:
+
+- **Accent:** Pine (default), Slate Blue, Oxblood, or any brand hex you supply. Only the accent and its tints change — the bright ground and cool neutrals stay fixed.
+- **Display font:** Charter (default), Palatino, Iowan Old Style, Baskerville, or an all-sans Manrope Bold. Manrope always carries the body copy and data.
+
+Emphasis comes from type weight, hairlines, and whitespace, never a coloured bar down one edge. The system strips the patterns that now read as AI-design tells: warm cream grounds, a single font, eyebrow pills, oversized section numerals.
 
 `assets/reference-build.js` is a complete, render-tested worked example. Run it to see the system:
 
