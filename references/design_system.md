@@ -49,7 +49,7 @@ The full token set per theme (`panel`, `line`, `mute`, `body`, `tint`, `tintBord
 
 Eight vetted display faces (body is always Manrope): **Charter** (default), Palatino, Iowan Old Style, Baskerville, Hoefler Text, Cochin, Optima, and **Manrope Bold** (all-sans). All macOS-installed and render-tested in the pptxgenjs→LibreOffice pipeline. Each theme ships a default; override per deck via `inputs.brand.font_display` (`DISPLAY_BOLD=true` for the all-sans pick). Stay off the overused list (Inter, Roboto, Fraunces, Geist, Plus Jakarta, Space Grotesk).
 
-### Neutrals (always the same — v5 cool)
+### Neutrals (the bright-white-pine defaults — each theme defines its own; see §1)
 
 ```
 surface  FCFCFA   bright near-white — the page ground (was warm cream; do not reintroduce cream)
@@ -232,10 +232,10 @@ Every y-coordinate sits on a logical baseline. No element above the footer has `
 
 ### Lock (the v5 signature)
 
-- Bright `surface` ground — never reintroduce a cream/beige default
+- The curated theme set — pick one per deck; never hand-roll a palette or mix themes mid-deck
 - The two-family pairing (display serif + body sans) — never collapse to one family
 - The stripped anatomy: plain breadcrumb + hairline, plain page number, no one-side accent bars, no eyebrow pill, no oversized section numeral
-- The cool neutral palette and the one-accent principle
+- One-accent discipline and cohesive neutrals *within the chosen theme*
 - The two callout-strip treatments (INK-emphasis, pine-tint)
 - The footer structure
 
@@ -247,7 +247,7 @@ If you want to change something locked, ask whether a variant skill is warranted
 
 v5 was rebuilt against the impeccable "slop" catalogue (46 AI-design tells). The full mapping — every finding, whether it applies to static decks, and the deliberate v5 response — lives in `references/anti-slop.md`, and the statically-checkable rules run in `scripts/deck_qa.js`. The headline reversals from v4:
 
-- **No cream/beige ground** → bright `surface` instead.
+- **No reflexive cream default** → pick a deliberate theme (light, dark, or solarized); every ground is a chosen one, not a soft-beige reflex.
 - **No single font** → a display font (default Charter, chosen per deck) paired with Manrope; an all-sans Manrope-Bold pick is an allowed conscious choice, mitigated by weight hierarchy.
 - **No one-side accent bars** (the side-tab tell) → emphasis by weight, hairline, fill, space.
 - **No eyebrow/kicker pills, no repeated tracked-label scaffolding** → a plain breadcrumb is the only top-left label.
