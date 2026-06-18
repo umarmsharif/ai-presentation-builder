@@ -58,6 +58,17 @@ Density tags remain useful as metadata for Claude's recommendation step — know
 | `phased-agenda-rail` | sparse | frame | row | all | extended |
 | `iterative-cycle-flow` | medium | sequence | cycle | roadmap, transformation, diagnostic | extended |
 | `outcome-band-overlap` | medium | compare | axis | diagnostic, recommendation | extended |
+| `layered-pyramid` | light | decompose | pyramid | recommendation, transformation, pitch | extended |
+| `venn-overlap` | light | compare | overlap | recommendation, diagnostic, market-entry | extended |
+| `concentric-bullseye` | light | decompose | rings | recommendation, transformation | extended |
+| `positioning-spectrum` | light | rank | axis | market-entry, recommendation, diagnostic | extended |
+| `hub-and-spoke` | medium | decompose | radial | transformation, recommendation | extended |
+| `bowtie-flow` | medium | sequence | convergence | diagnostic, transformation | extended |
+| `maturity-staircase` | medium | sequence | cascade | roadmap, transformation, diagnostic | extended |
+| `nine-box-matrix` | medium | rank | grid | diagnostic, recommendation | extended |
+| `radar-profile` | medium | compare | radial | diagnostic, recommendation | extended |
+| `pros-cons-ledger` | light | compare | column | recommendation, pitch | extended |
+| `nested-containers` | light | decompose | rings | market-entry, diagnostic | extended |
 
 ---
 
@@ -269,6 +280,33 @@ Three columns: baseline (INK fill, WH text) + scenarios (CRIMSON section header 
 CRIMSON CTA band top, 3–4 ask rows below with date pills. Always the last content slide before the title-bookend close.
 
 ---
+
+## Visual primitives (extended)
+
+Eleven render-tested visual-grammar primitives (June 2026) distilled from The Grove's Group Graphics keyboard + the consulting primitive grid. Recipes in `build-helpers.md` §2.35–2.45; build + per-primitive previews in `references/visual-primitives/`. Decorative shapes from the same source (honeycomb, infinity loop, 3-D stacked planes, gradient spectrums) were deliberately not promoted — little analysis, and they trip `anti-slop.md`.
+
+### `layered-pyramid` — light
+Hierarchy of stacked layers, few-at-apex to many-at-base; the apex carries the accent.
+### `venn-overlap` — light
+Two or three outlined set circles; the intersection is the highlighted insight.
+### `concentric-bullseye` — light
+Core + distance rings (innovation horizons / effort allocation); the centre is the accent.
+### `positioning-spectrum` — light
+A point on a one-axis continuum, with a today marker and a target marker.
+### `hub-and-spoke` — medium
+One shared centre, N dependents on an ellipse; spokes via `connector()`.
+### `bowtie-flow` — medium
+Inputs converge on a core decision, then diverge to outcomes.
+### `maturity-staircase` — medium
+Ordered stages rising left→right; the final tread carries the accent.
+### `nine-box-matrix` — medium
+3×3 two-axis segmentation; one focus cell carries the accent.
+### `radar-profile` — medium
+Native radar; subject vs benchmark across 4–8 dimensions.
+### `pros-cons-ledger` — light
+Two-sided weighing with semantic +/− chips and an INK verdict strip.
+### `nested-containers` — light
+Concentric rectangles for strict subset / containment (TAM·SAM·SOM).
 
 ## Extending the catalog
 

@@ -1101,6 +1101,143 @@ s.addImage({ path: `icons/${name}.png`, x: p.x - 0.21, y: p.y - 0.21, w: 0.42, h
 
 ---
 
+### 2.35–2.45 Visual primitives (extended, June 2026)
+
+Eleven primitives distilled from the visual-grammar vocabulary (The Grove's Group Graphics keyboard + the consulting primitive grid), render-tested on the v5 system — working build and per-primitive previews in `references/visual-primitives/`. All assume the token block (§1.1) and `header()/title()/footer()/connector()` (§3). Decorative shapes from the same source — honeycomb, infinity loop, 3-D stacked planes, gradient spectrums — were deliberately NOT promoted: near-zero analytical payload, and they trip `anti-slop.md`.
+
+### 2.35 Layered pyramid
+**When:** a hierarchy where each layer serves the one above — vision→strategy→capabilities→operations, or any few-at-apex / many-at-base proportion. NOT process steps (use `operating-flow-5stage`) or funnels (use a cascade).
+**Anatomy:** one `triangle` silhouette in `TINT`/`TINT_BORDER`, divided by horizontal hairlines whose width tracks the triangle edge at each boundary; a digit in each band; band names + descriptors in a right-hand column aligned to band centres. The apex (narrowest, most strategic) carries the single ACCENT.
+```js
+const cx=4.0,W=5.0,y0=2.85,H=3.5,bands=[{n:"VISION",d:"…",c:ACCENT},/*…*/{n:"OPERATIONS",d:"…",c:INK}],k=bands.length;
+s.addShape(pres.ShapeType.triangle,{x:cx-W/2,y:y0,w:W,h:H,fill:{color:TINT},line:{color:TINT_BORDER,pt:1}});
+for(let i=1;i<k;i++){const yk=y0+i*H/k,hw=(W/2)*(i/k); s.addShape(pres.ShapeType.rect,{x:cx-hw,y:yk,w:2*hw,h:0.012,fill:{color:TINT_BORDER},line:{color:TINT_BORDER}});}
+bands.forEach((b,i)=>{const yc=y0+(i+0.5)*H/k; s.addText(`${i+1}`,{x:cx-0.3,y:yc-0.16,w:0.6,h:0.32,fontSize:13,bold:true,color:i===0?ACCENT:BODY,fontFace:FONT,align:"center"}); s.addText(b.n,{x:7.0,y:yc-0.26,w:5.4,h:0.3,fontSize:14,bold:true,color:b.c,fontFace:FONT}); s.addText(b.d,{x:7.0,y:yc+0.02,w:5.4,h:0.28,fontSize:11.3,italic:true,color:MUTE,fontFace:FONT});});
+```
+**Common defects:** the apex band is too narrow for inside text — keep a digit/short tag inside, names go right. `pres.ShapeType.triangle` renders in LibreOffice; the older `pres.shapes.TRIANGLE` alias does not.
+**Variants:** 3–5 bands; invert (base = apex story) only for a bottom-up narrative.
+
+### 2.36 Venn overlap
+**When:** the answer sits in the intersection of 2–3 sets — desirability/feasibility/viability, three buyer needs, two strategies' common ground.
+**Anatomy:** outlined (line-only, no fills) `ellipse`s so overlaps read without transparency; set names + one-line glosses in each circle's OUTER lobe; a small `TINT` ellipse at the centroid with the intersection label in ACCENT — the eye lands on the overlap, preserving one-accent.
+```js
+const r=1.5,sets=[{cx:6.0,cy:4.05,lab:"DESIRABLE",sub:"…",lx:6.0,ly:3.2,al:"center"},{cx:5.0,cy:5.35,lab:"FEASIBLE",sub:"…",lx:3.05,ly:5.95,al:"left"},{cx:7.0,cy:5.35,lab:"VIABLE",sub:"…",lx:8.55,ly:5.95,al:"left"}];
+sets.forEach(o=>s.addShape(pres.ShapeType.ellipse,{x:o.cx-r,y:o.cy-r,w:2*r,h:2*r,fill:{type:"none"},line:{color:BODY,pt:1.25}}));
+sets.forEach(o=>{s.addText(o.lab,{x:o.lx-1.3,y:o.ly-0.16,w:2.6,h:0.3,fontSize:12.5,bold:true,color:INK,fontFace:FONT,align:o.al}); s.addText(o.sub,{x:o.lx-1.3,y:o.ly+0.14,w:2.6,h:0.26,fontSize:10,italic:true,color:MUTE,fontFace:FONT,align:o.al});});
+const ix=6.0,iy=4.7; s.addShape(pres.ShapeType.ellipse,{x:ix-0.62,y:iy-0.5,w:1.24,h:1.0,fill:{color:TINT},line:{color:ACCENT,pt:1.25}}); s.addText("FIT",{x:ix-0.62,y:iy-0.28,w:1.24,h:0.3,fontSize:13,bold:true,color:ACCENT,fontFace:FONT,align:"center"});
+```
+**Common defects:** translucent filled circles render unreliably through LibreOffice — use line-only. Keep the top circle's top edge ≥ 2.55 (cy≥4.05 at r=1.5) so it clears the headline.
+**Variants:** 2-set Venn; label only the overlap when the overlap is the whole point.
+
+### 2.37 Concentric bullseye
+**When:** core + rings of distance — innovation horizons (core/adjacent/transformational), defend-then-extend, effort allocation.
+**Anatomy:** nested `ellipse`s drawn largest→smallest (outer `TINT`, mid `PANEL`, centre `ACCENT`); ring names at each ring's top arc, centre label reversed white; a right-hand column carries descriptor + share per ring.
+```js
+const cx=4.2,cy=4.6,rings=[{r:2.0,fill:TINT,bd:TINT_BORDER},{r:1.38,fill:PANEL,bd:LINE},{r:0.78,fill:ACCENT,bd:ACCENT}];
+rings.forEach(o=>s.addShape(pres.ShapeType.ellipse,{x:cx-o.r,y:cy-o.r,w:2*o.r,h:2*o.r,fill:{color:o.fill},line:{color:o.bd,pt:1}}));
+// centre label WH; outer ring labels at (cx, cy-r+pad) centred; right column = 3 rows aligned to ring order
+```
+**Common defects:** draw order = z-order — paint outer first or it hides the inner rings. Ring labels inside thin bands collide; put all but the centre at the top arc or in the right column.
+**Variants:** 2 or 4 rings; concentric *squares* = `nested-containers` (2.45) when the relation is containment, not distance.
+
+### 2.38 Positioning spectrum
+**When:** where something sits on a one-axis continuum, and where it intends to move — price tier, maturity, risk appetite.
+**Anatomy:** a `PANEL` bar split into named zones by hairline ticks; a filled `triangle` (rotate 180) "today" marker in ACCENT and a line-only target marker in MUTE, each with a tracked-caps label; pole captions at the two ends.
+```js
+const x0=1.6,w=10.13,y=5.0,h=0.5,segs=["BUDGET","MID-MARKET","PREMIUM"];
+s.addShape(pres.ShapeType.rect,{x:x0,y,w,h,fill:{color:PANEL},line:{color:LINE,pt:1}});
+for(let i=1;i<3;i++) s.addShape(pres.ShapeType.rect,{x:x0+i*w/3,y,w:0.012,h,fill:{color:LINE},line:{color:LINE}});
+const cur=x0+w*0.45,tgt=x0+w*0.80;
+s.addShape(pres.ShapeType.triangle,{x:cur-0.16,y:y-0.34,w:0.32,h:0.3,fill:{color:ACCENT},line:{color:ACCENT},rotate:180});
+s.addShape(pres.ShapeType.triangle,{x:tgt-0.16,y:y-0.34,w:0.32,h:0.3,fill:{type:"none"},line:{color:MUTE,pt:1.25},rotate:180});
+```
+**Common defects:** the bar is vertically sparse — pair it with rationale (zone captions, a "why move" line) or it reads as filler. Discrete equal zones only; a left-to-right gradient is an anti-slop tell.
+**Variants:** continuous (no ticks) single marker; two markers (today vs target) as shown.
+
+### 2.39 Hub & spoke
+**When:** one shared asset that many dependents draw from — a platform, a single source of truth, a central team.
+**Anatomy:** an ACCENT `ellipse` hub (reversed label) with N dependents as `roundRect` pills on an ELLIPSE (wider than tall, so the wide canvas is used and side pills clear the hub); `connector()` spokes drawn before the nodes.
+```js
+const cx=6.4,cy=4.85,Rx=3.05,Ry=1.78,hubR=0.95,pillW=1.95,pillH=0.62,nodes=[/* …×5 */];
+const pts=nodes.map((_,i)=>{const a=(-90+i*360/nodes.length)*Math.PI/180; return {x:cx+Rx*Math.cos(a),y:cy+Ry*Math.sin(a)};});
+pts.forEach(p=>connector(s,cx,cy,p.x,p.y,TINT_BORDER,0.03));
+s.addShape(pres.ShapeType.ellipse,{x:cx-hubR,y:cy-hubR,w:2*hubR,h:2*hubR,fill:{color:ACCENT},line:{color:ACCENT}});
+pts.forEach((p,i)=>{s.addShape(pres.ShapeType.roundRect,{x:p.x-pillW/2,y:p.y-pillH/2,w:pillW,h:pillH,rectRadius:0.08,fill:{color:WH},line:{color:LINE,pt:1}}); /* + centred label */});
+```
+**Common defects:** a CIRCULAR layout (Rx=Ry) either overruns the headline (top node) or collides side pills with the hub — use an ellipse (Rx>Ry). Keep the top node's top edge ≥ 2.6.
+**Variants:** label the spokes (flow direction) for a process hub; 4–7 dependents.
+
+### 2.40 Bowtie (converge → core → diverge)
+**When:** many inputs funnel through one control point to many outputs — a decision and its drivers/consequences, a risk bowtie (causes→event→impacts).
+**Anatomy:** input pills (left) and output pills (right) joined to a central ACCENT `diamond` by `connector()` lines; the crossing lines ARE the bowtie silhouette, so no triangle shapes are needed.
+```js
+const coreX=6.65,coreY=4.6,inX=2.55,outX=10.75,pw=3.0,ph=0.62,inY=[3.35,4.6,5.85],outY=[3.35,4.6,5.85];
+inY.forEach(y=>connector(s,inX+pw/2,y,coreX-0.62,coreY,TINT_BORDER,0.028));
+outY.forEach(y=>connector(s,coreX+0.62,coreY,outX-pw/2,y,TINT_BORDER,0.028));
+s.addShape(pres.ShapeType.diamond,{x:coreX-0.85,y:coreY-0.85,w:1.7,h:1.7,fill:{color:ACCENT},line:{color:ACCENT}});
+// + input pills PANEL/left, output pills WH/right, "INPUTS"/"OUTCOMES" tracked-caps over each column
+```
+**Common defects:** connectors must originate at the core's edge (±0.62), not its centre, or they poke through the diamond. 3×3 is the clean default.
+**Variants:** asymmetric (1→many = divergence only; many→1 = use `source-to-destination-diagram` 2.20).
+
+### 2.41 Maturity staircase
+**When:** ordered stages where each is a prerequisite for the next — capability maturity, adoption ladder. Ascending = progression; use a centred pyramid for hierarchy instead.
+**Anatomy:** N `rect` blocks rising left→right (height grows by a fixed step); the top stage carries the single ACCENT fill; `connector()` risers link each block-top to the next; a "→ rising X" caption under the baseline.
+```js
+const base=6.25,sw=2.6,gap=0.18,x0=1.2,steps=[/* {n,d} × 4 */];
+steps.forEach((st,i)=>{const h=1.0+i*0.82,x=x0+i*(sw+gap),y=base-h,top=i===steps.length-1;
+  s.addShape(pres.ShapeType.rect,{x,y,w:sw,h,fill:{color:top?ACCENT:PANEL},line:{color:top?ACCENT:LINE,pt:1}}); /* number + name + trait */
+  if(i<steps.length-1) connector(s,x+sw,base-h,x0+(i+1)*(sw+gap),base-(1.0+(i+1)*0.82),MUTE,0.02);});
+```
+**Common defects:** the tallest block can collide with the title — cap step growth so block-top ≥ 2.7. Risers connect block-top to block-top, not corners.
+**Variants:** 3–5 steps; add a target flag on the final tread.
+
+### 2.42 Nine-box matrix
+**When:** segmenting on two 3-band axes — performance×potential, impact×effort at finer grain than a 2×2, attractiveness×fit.
+**Anatomy:** a 3×3 grid of `rect` cells; the focus cell (typically top-right) gets `TINT` + ACCENT border + bold ACCENT label, off-diagonal low cells get `PANEL`; axis labels as horizontal tracked-caps with ↑/→ glyphs (never rotated text).
+```js
+const x0=3.3,y0=2.9,cw=2.55,ch=1.12,cells=[[/*row0*/],[/*row1*/],[/*row2*/]];
+for(let r=0;r<3;r++)for(let c=0;c<3;c++){const star=(r===0&&c===2);
+  s.addShape(pres.ShapeType.rect,{x:x0+c*cw,y:y0+r*ch,w:cw,h:ch,fill:{color:star?TINT:(r+c>=3?PANEL:WH)},line:{color:star?ACCENT:LINE,pt:star?1.25:1}}); /* centred label */}
+// axes: "POTENTIAL ↑" left of grid, "PERFORMANCE →" below — horizontal, not rotated
+```
+**Common defects:** rotated axis text renders buggy in LibreOffice — keep axis labels horizontal with glyph arrows. Colour only the one focus cell or the routing is lost.
+**Variants:** shade a diagonal "develop" band; 2×2 is `prioritisation-matrix`.
+
+### 2.43 Radar / spider profile
+**When:** one or two entities profiled across 4–8 comparable dimensions where the SHAPE (where it caves in) is the story — capability vs target, competitor overlap.
+**Anatomy:** a native `pres.ChartType.radar` chart, ACCENT line filled ~35% for the subject and a MUTE outline for the benchmark; a right-hand `TINT` panel naming the widest gaps with deltas.
+```js
+const dims=[/* …×6 */],data=[{name:"Today",labels:dims,values:[/*…*/]},{name:"Target",labels:dims,values:[/*…*/]}];
+s.addChart(pres.ChartType.radar,data,{x:0.7,y:2.55,w:7.4,h:4.3,radarStyle:"standard",chartColors:[ACCENT,MUTE],chartColorsOpacity:[35,0],lineSize:2.25,showLegend:true,legendPos:"b",valAxisHidden:true,valAxisMaxVal:5,valAxisMinVal:0,catAxisLabelColor:INK,catAxisLabelFontFace:FONT});
+```
+**Common defects:** radar does NOT survive PPTX→Google Slides — export to PNG (§5) if the deck lives in Slides. Cap at 8 axes; hide the value axis or the rings clutter the read.
+**Variants:** single series (no benchmark); 3 series max before unreadable.
+
+### 2.44 Pros / cons ledger
+**When:** a two-sided weighing that must end in a stated call — build vs buy, go vs hold.
+**Anatomy:** two columns split by a hairline, each item led by a small semantic chip (`G` "+" / `R` "−"); a full-width INK verdict strip at the bottom with the call, ACCENT keyword. Semantic green/red is the rare allowed extra colour — meaning, not decoration.
+```js
+const colW=5.55,lx=0.8,rx=7.0,hy=2.75,iy=3.45,rh=0.66;
+s.addShape(pres.ShapeType.rect,{x:6.665,y:hy,w:0.012,h:3.1,fill:{color:LINE},line:{color:LINE}});
+function mark(s,x,y,sym,col){s.addShape(pres.ShapeType.ellipse,{x,y,w:0.3,h:0.3,fill:{color:col},line:{color:col}}); s.addText(sym,{x,y:y-0.01,w:0.3,h:0.3,fontSize:14,bold:true,color:WH,fontFace:FONT,align:"center",valign:"middle"});}
+// pros → mark(...,"+",G); cons → mark(...,"–",R); INK verdict strip at y=6.25 with ACCENT keyword
+```
+**Common defects:** without the verdict strip this is just a list — the call is the point. Don't let either column run past x≈12.6.
+**Variants:** add a weight/score per row; three columns (keep/drop/defer).
+
+### 2.45 Nested containers
+**When:** strict subset / containment — TAM·SAM·SOM, scope rings (market→segment→target), in-scope vs out-of-scope.
+**Anatomy:** concentric `rect`s, outer→inner, each labelled top-left with its value; the innermost (the obtainable/target) takes `TINT` + ACCENT; a one-line "what the number must defend" caption below.
+```js
+const levels=[{x:2.45,y:2.85,w:8.45,h:3.7,fill:WH,bd:LINE,lab:"TAM · TOTAL",val:"$4.2B",tc:INK},{x:3.35,y:3.45,w:6.65,h:2.5,fill:PANEL,bd:LINE,lab:"SAM",val:"$900M",tc:INK},{x:4.55,y:4.05,w:4.25,h:1.3,fill:TINT,bd:ACCENT,lab:"SOM",val:"$120M",tc:ACCENT}];
+levels.forEach((L,i)=>{s.addShape(pres.ShapeType.rect,{x:L.x,y:L.y,w:L.w,h:L.h,fill:{color:L.fill},line:{color:L.bd,pt:i===2?1.25:1}}); /* label top-left + value top-right */});
+```
+**Common defects:** inset each level ≥ 0.5" so labels don't collide; right-align the value so it never sits on the inner box's border.
+**Variants:** *circles* instead of rects = `concentric-bullseye` (2.37) when the meaning is distance-from-core.
+
+---
+
 ## 3. Reusable Helper Functions
 
 ```js
@@ -1118,6 +1255,11 @@ function title(s, context, headline) {
 function footer(s, note, label) {
   s.addText(note, { x:0.533, y:7.067, w:9.333, h:0.333, fontSize:11, italic:true, color:MUTE, fontFace:FONT });
   s.addText(label, { x:10.0, y:7.067, w:2.8, h:0.333, fontSize:11, color:MUTE, fontFace:FONT, align:"right" });
+}
+// straight connector between two points — spokes, bowtie lines, staircase risers
+function connector(s, x1, y1, x2, y2, color, thick) {
+  const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy), ang = Math.atan2(dy, dx) * 180 / Math.PI;
+  s.addShape(pres.ShapeType.rect, { x: (x1+x2)/2 - len/2, y: (y1+y2)/2 - thick/2, w: len, h: thick, fill: { color }, line: { color }, rotate: ang });
 }
 // RACI cell colour helper
 function rciColor(code) {
