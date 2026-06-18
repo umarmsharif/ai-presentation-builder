@@ -28,12 +28,28 @@ const PptxGenJS = require("pptxgenjs");
 const pres = new PptxGenJS();
 pres.layout = "LAYOUT_WIDE"; // 13.333 × 7.5 inches
 
-// ── v5 Bright White & Pine tokens ──────────────────────────────────────────
-const SURFACE = "FCFCFA", INK = "1A1A1A", BODY = "45474A", MUTE = "8A8D90";
-const LINE = "DADEDC", PANEL = "F2F4F3", WH = "FFFFFF";
-const ACCENT = "12564A", ACCENT_DK = "0C3D34", TINT = "E6EFEA", TINT_BORDER = "C9DBD2";
+// ── Themes (curated, anti-slop) — pick one per deck; default bright-white-pine ──
+// Each theme is a complete, taste-vetted palette. The token NAMES never change, so
+// every helper and pattern below is theme-agnostic. Dark themes work because four
+// semantic tokens (strip/onStrip/onAccent/onAccentMute) carry the fills + reversed
+// text that INK/WH used to hardcode. Select with the THEME env var or inputs.theme.
+const THEMES = {
+  "bright-white-pine": { surface:"FCFCFA", ink:"1A1A1A", body:"45474A", mute:"8A8D90", line:"DADEDC", panel:"F2F4F3", accent:"12564A", accentDark:"0C3D34", tint:"E6EFEA", tintBorder:"C9DBD2", strip:"1A1A1A", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"E6EFEA", muteFill:"C2CDC8", font:"Charter", displayBold:false },
+  "slate":            { surface:"FBFCFD", ink:"16202B", body:"44505E", mute:"8893A0", line:"DCE3EA", panel:"EDF1F5", accent:"1F3A5F", accentDark:"13263F", tint:"E7ECF2", tintBorder:"CBD5E2", strip:"16202B", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"E7ECF2", muteFill:"C4D0DC", font:"Iowan Old Style", displayBold:false },
+  "oxblood":          { surface:"FCFAF9", ink:"241A1A", body:"4A3F3F", mute:"948A88", line:"E8E0DC", panel:"F4EEEB", accent:"6E1423", accentDark:"4E0E19", tint:"F3E7E9", tintBorder:"E2CCD1", strip:"241A1A", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"F3E7E9", muteFill:"D8C9C6", font:"Baskerville", displayBold:false },
+  "solarized":        { surface:"FDF6E3", ink:"073642", body:"586E75", mute:"93A1A1", line:"EEE8D5", panel:"F4EDD9", accent:"268BD2", accentDark:"1A6BA8", tint:"E7EEF2", tintBorder:"C9DCEA", strip:"073642", onStrip:"FDF6E3", onAccent:"FFFFFF", onAccentMute:"E7EEF2", muteFill:"D7D2BF", font:"Optima", displayBold:false },
+  "paper":            { surface:"F7F4EF", ink:"2A2724", body:"54504A", mute:"938E85", line:"E6E0D6", panel:"EFE9E0", accent:"A8552F", accentDark:"7E3D20", tint:"F2E7DD", tintBorder:"E0CDBD", strip:"2A2724", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"F2E7DD", muteFill:"D9CFC0", font:"Cochin", displayBold:false },
+  "mono":             { surface:"FFFFFF", ink:"121212", body:"3C3C3C", mute:"8C8C8C", line:"E4E4E4", panel:"F5F5F5", accent:"121212", accentDark:"000000", tint:"EDEDED", tintBorder:"D8D8D8", strip:"121212", onStrip:"FFFFFF", onAccent:"FFFFFF", onAccentMute:"D8D8D8", muteFill:"CFCFCF", font:"Charter", displayBold:false },
+  "ink":              { surface:"15181C", ink:"F1F4F6", body:"C0C7CE", mute:"88909A", line:"2A3038", panel:"1D2228", accent:"5FB89E", accentDark:"3E9E84", tint:"18302B", tintBorder:"2F5A4F", strip:"F1F4F6", onStrip:"15181C", onAccent:"0C2B24", onAccentMute:"0C2B24", muteFill:"39443F", font:"Palatino", displayBold:false },
+  "midnight":         { surface:"121826", ink:"EEF2F8", body:"B7C0CF", mute:"7E8A9C", line:"232C3D", panel:"19212F", accent:"E0A93B", accentDark:"B5841F", tint:"1E2A3F", tintBorder:"38466A", strip:"EEF2F8", onStrip:"121826", onAccent:"1A1407", onAccentMute:"1A1407", muteFill:"32404F", font:"Hoefler Text", displayBold:false },
+};
+const T = THEMES[process.env.THEME] || THEMES["bright-white-pine"];
+const SURFACE = T.surface, INK = T.ink, BODY = T.body, MUTE = T.mute;
+const LINE = T.line, PANEL = T.panel, WH = "FFFFFF";
+const ACCENT = T.accent, ACCENT_DK = T.accentDark, TINT = T.tint, TINT_BORDER = T.tintBorder;
+const STRIP = T.strip, ON_STRIP = T.onStrip, ON_ACCENT = T.onAccent, ON_ACCENT_MUTE = T.onAccentMute, MUTEFILL = T.muteFill;
 const G = "2F7A55", A = "B07D2B", R = "B23A2E"; // semantic: good / amber / risk
-const DISPLAY = "Charter", DISPLAY_BOLD = false, FONT = "Manrope"; // all-sans pick: DISPLAY="Manrope", DISPLAY_BOLD=true
+const DISPLAY = T.font, DISPLAY_BOLD = T.displayBold, FONT = "Manrope";
 
 const MX = 0.533;          // left margin — content and frame share it
 const CW = 12.267;         // content width (right edge 12.8)
@@ -122,7 +138,7 @@ function footer(s, note, num) {
   rows.forEach((d, i) => {
     const y = y0 + i * rh;
     s.addShape(pres.ShapeType.ellipse, { x: MX, y: y + 0.05, w: 0.62, h: 0.62, fill: fillLine(ACCENT), line: fillLine(ACCENT) });
-    s.addText(d.n, { x: MX, y: y + 0.05, w: 0.62, h: 0.62, fontSize: 22, bold: true, color: WH, fontFace: FONT, align: "center", valign: "middle" });
+    s.addText(d.n, { x: MX, y: y + 0.05, w: 0.62, h: 0.62, fontSize: 22, bold: true, color: ON_ACCENT, fontFace: FONT, align: "center", valign: "middle" });
     s.addText(d.head, { x: MX + 0.95, y: y, w: 11.2, h: 0.45, fontSize: 17, bold: true, color: INK, fontFace: DISPLAY });
     s.addText(d.body, { x: MX + 0.95, y: y + 0.46, w: 11.2, h: 0.7, fontSize: 12.5, color: BODY, fontFace: FONT });
     if (i < rows.length - 1) s.addShape(rect, { x: MX, y: y + rh - 0.12, w: CW, h: 0.01, fill: fillLine(LINE), line: fillLine(LINE) });
@@ -150,7 +166,7 @@ function footer(s, note, num) {
     s.addText(d.label, { x: MX, y: yc, w: 4.35, h: 0.5, fontSize: 12.5, bold: d.focus,
       color: d.focus ? INK : BODY, fontFace: FONT, valign: "middle" });
     const w = axMaxW * (d.val / vMax);
-    s.addShape(rect, { x: axX, y: yc + 0.07, w, h: 0.36, fill: fillLine(d.focus ? ACCENT : "C2CDC8"), line: fillLine(d.focus ? ACCENT : "C2CDC8") });
+    s.addShape(rect, { x: axX, y: yc + 0.07, w, h: 0.36, fill: fillLine(d.focus ? ACCENT : MUTEFILL), line: fillLine(d.focus ? ACCENT : MUTEFILL) });
     s.addText(`${d.val.toFixed(1)}x`, { x: axX + w + 0.12, y: yc, w: 1.0, h: 0.5, fontSize: 13.5, bold: true,
       color: d.focus ? ACCENT : MUTE, fontFace: FONT, valign: "middle" });
   });
@@ -182,10 +198,10 @@ function footer(s, note, num) {
     if (i < work.length - 1) s.addShape(rect, { x: MX, y: y + rowH - 0.12, w: CW, h: 0.008, fill: fillLine(LINE), line: fillLine(LINE) });
   });
   // INK-emphasis takeaway strip (primary takeaway → INK, not pine-tint)
-  s.addShape(rect, { x: MX, y: 6.45, w: CW, h: 0.5, fill: fillLine(INK), line: fillLine(INK) });
+  s.addShape(rect, { x: MX, y: 6.45, w: CW, h: 0.5, fill: fillLine(STRIP), line: fillLine(STRIP) });
   s.addText([
-    { text: "THE SHIFT   ", options: { bold: true, color: ACCENT, fontSize: 11, charSpacing: 2 } },
-    { text: "First measurable D2 lift by end of Q3; full close by Q1.", options: { color: WH, fontSize: 13 } },
+    { text: "THE SHIFT   ", options: { bold: true, color: ON_STRIP, fontSize: 11, charSpacing: 2 } },
+    { text: "First measurable D2 lift by end of Q3; full close by Q1.", options: { color: ON_STRIP, fontSize: 13 } },
   ], { x: MX + 0.3, y: 6.45, w: CW - 0.6, h: 0.5, fontFace: FONT, valign: "middle" });
   footer(s, "Phases sequenced by dependency, not by team availability.", 5);
 })();
@@ -197,7 +213,7 @@ function footer(s, note, num) {
   s.addText("WHAT WE NEED", { x: MX, y: 1.6, w: 11.4, h: 0.45, fontSize: 11, bold: true,
     color: TINT, charSpacing: 3, fontFace: FONT });
   s.addText("Three decisions to start Monday", { x: 0.5, y: 2.2, w: 12.3, h: 1.0, fontSize: 40,
-    color: WH, fontFace: DISPLAY });
+    color: ON_ACCENT, fontFace: DISPLAY });
   const asks = [
     { t: "Fund a 6-week first-run rebuild", d: "One squad, ring-fenced." },
     { t: "Name a single activation owner", d: "Accountable for the first session." },
@@ -206,11 +222,11 @@ function footer(s, note, num) {
   const y0 = 3.7, rh = 0.92;
   asks.forEach((d, i) => {
     const y = y0 + i * rh;
-    s.addShape(pres.ShapeType.ellipse, { x: MX, y, w: 0.5, h: 0.5, fill: fillLine(WH), line: fillLine(WH) });
+    s.addShape(pres.ShapeType.ellipse, { x: MX, y, w: 0.5, h: 0.5, fill: fillLine(ON_ACCENT), line: fillLine(ON_ACCENT) });
     s.addText(`${i + 1}`, { x: MX, y, w: 0.5, h: 0.5, fontSize: 18, bold: true, color: ACCENT, fontFace: FONT, align: "center", valign: "middle" });
     s.addText([
-      { text: d.t + "   ", options: { bold: true, color: WH, fontSize: 17 } },
-      { text: d.d, options: { color: TINT, fontSize: 13, italic: true } },
+      { text: d.t + "   ", options: { bold: true, color: ON_ACCENT, fontSize: 17 } },
+      { text: d.d, options: { color: ON_ACCENT_MUTE, fontSize: 13, italic: true } },
     ], { x: MX + 0.8, y, w: 11.4, h: 0.5, fontFace: FONT, valign: "middle" });
   });
   s.addText("Northwind  ·  Board review", { x: MX, y: 6.8, w: 11.4, h: 0.3, fontSize: 10,
