@@ -4,6 +4,11 @@ A Claude skill that builds consulting-grade strategy decks — diagnostics, reco
 
 Most AI deck tools give you generic, slop-looking slides: cream backgrounds, one font everywhere, accent bars down the side, the same three-bullet framework on every slide. This one is built against an anti-slop catalogue. It interviews you, structures the narrative on a cheap "ghost deck" before drafting a single slide, picks the right layout for each slide's job, and builds a real `.pptx` you can open in PowerPoint or Google Slides and keep editing.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.png">
+  <img alt="Pipeline: brief → ghost deck (you approve) → pattern pick → build → QA loop → flight-check (you approve) → ship as PPTX / HTML / MD" src="assets/workflow.png" width="100%">
+</picture>
+
 ## What it does
 
 - **Briefs before building.** Two quick rounds of questions fix the audience, the goal, the archetype, the colour, and the headline font. Nothing gets drawn until the brief is set.
