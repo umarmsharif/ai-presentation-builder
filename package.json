@@ -5,7 +5,8 @@
   "license": "MIT",
   "author": "Umar Sharif",
   "scripts": {
-    "example": "node assets/reference-build.js"
+    "example": "node assets/reference-build.js",
+    "pack": "git archive --format=zip -o ai-presentation-builder.zip HEAD . ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.jpeg' && echo 'packed ai-presentation-builder.zip (upload this to claude.ai / Cowork)'"
   },
   "dependencies": {
     "pptxgenjs": "^4.0.1"

@@ -53,7 +53,7 @@ Restart Claude Code (skills load at session start). Trigger it with "build me a 
 
 **claude.ai / Claude Desktop / Cowork**
 
-1. Download `ai-presentation-builder.zip` (or zip this folder yourself).
+1. Build the upload zip: `npm run pack`. It writes `ai-presentation-builder.zip`, a lean (~150 KB) archive of just the skill: no `node_modules`, no `.git`, no preview images. Do not zip the folder directly, which bundles the multi-megabyte `node_modules` and bloats the upload.
 2. In Claude, open **Settings → Capabilities → Skills** and upload the zip.
 3. Start a chat and describe the deck you want. The skill activates on the same trigger phrases.
 
