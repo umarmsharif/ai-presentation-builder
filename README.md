@@ -42,22 +42,54 @@ npm run example          # writes reference-build.pptx
 
 ## Install
 
-**Claude Code**
+Which steps you follow depends on which Claude you use. **Claude Code** reads the skill straight from a folder. The app versions (**claude.ai**, the **desktop app**, and **Cowork**) install by uploading one zip file.
+
+### Get the zip (for the app versions)
+
+Two ways to get `ai-presentation-builder.zip`:
+
+- **Download it (no tools needed):** grab `ai-presentation-builder.zip` from the [latest release](https://github.com/umarmsharif/ai-presentation-builder/releases/latest).
+- **Build it (git + node):** run `git clone https://github.com/umarmsharif/ai-presentation-builder.git`, then `cd ai-presentation-builder && npm run pack`. That writes the same ~150 KB zip (no `node_modules`, no `.git`, no preview images). Do not zip the folder by hand, which bundles the multi-megabyte `node_modules`.
+
+### 1. Claude Code (the command-line tool)
+
+The terminal version. It builds the finished PowerPoint for you, so it is the most capable option. No zip needed here.
 
 ```bash
 git clone https://github.com/umarmsharif/ai-presentation-builder.git ~/.claude/skills/ai-presentation-builder
 cd ~/.claude/skills/ai-presentation-builder && npm install
 ```
 
-Restart Claude Code (skills load at session start). Trigger it with "build me a deck", "make a strategy presentation", "turn this into a board deck", or just by describing a consulting deliverable.
+Quit and reopen Claude Code, then say "build me a board deck on [topic]" (or "make a strategy presentation", "turn this into a deck").
 
-**claude.ai / Claude Desktop / Cowork**
+### 2. claude.ai (in a web browser)
 
-1. Build the upload zip: `npm run pack`. It writes `ai-presentation-builder.zip`, a lean (~150 KB) archive of just the skill: no `node_modules`, no `.git`, no preview images. Do not zip the folder directly, which bundles the multi-megabyte `node_modules` and bloats the upload.
-2. In Claude, open **Settings → Capabilities → Skills** and upload the zip.
-3. Start a chat and describe the deck you want. The skill activates on the same trigger phrases.
+1. Get the zip (above).
+2. Click your name at the bottom-left, then **Settings → Capabilities → Skills**.
+3. Click **Upload skill** and choose the zip.
+4. Start a new chat and describe the deck you want.
 
-In any environment with code execution (Claude Code, Cowork, claude.ai with the analysis tool), the full build pipeline runs. In a plain chat with no code execution, the skill still does the valuable thinking: it produces the ghost-deck outline and a per-slide spec you can render in PowerPoint, Google Slides, or Gamma.
+You get the slide-by-slide outline and a per-slide spec to render in PowerPoint, Google Slides, or Gamma. The browser version does not produce the file itself.
+
+### 3. Claude desktop app (Chat)
+
+The Claude app on your Mac or Windows, in normal chat mode.
+
+1. Get the zip.
+2. Open **Settings → Capabilities → Skills** and upload it. Skills are tied to your account, so an upload on claude.ai already covers this.
+3. Start a chat and describe the deck.
+
+Same result as the browser: the outline and spec, not a built file.
+
+### 4. Claude Cowork (inside the desktop app)
+
+Cowork gives Claude a real workspace that can run code and create files. This is the version that produces the actual PowerPoint.
+
+1. Get the zip.
+2. Upload it the same way (**Settings → Capabilities → Skills**); one upload covers both Chat and Cowork.
+3. Open a Cowork session and ask for the deck.
+
+Cowork installs what it needs and runs the build, so you get a finished, editable `.pptx` plus rendered previews of each slide.
 
 ## Usage
 
