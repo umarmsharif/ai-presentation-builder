@@ -202,6 +202,8 @@ Before writing a single line of slide code, open `assets/reference-build.js` and
 - The most common regression is placing a full-width accent band at `y=0` and the breadcrumb at `y=0.10`. This is the v4 anatomy — it was explicitly stripped in v5 as an AI-design tell. The header hairline at `y=0.80` is the ONLY rule in the upper zone.
 - `inkStrip()` and `tintStrip()` use `STRIP`/`ON_STRIP` tokens, not hardcoded colors, so they work correctly across all 8 themes without modification. A hand-written strip almost always hardcodes `INK`/`WH`, which inverts incorrectly on dark themes.
 
+If your deck has a line chart, also copy `lineSeg()` — the render-safe line-segment helper the exemplar uses to hand-draw the trajectory on slide 3. The exemplar never calls `addChart`: native line/scatter series degrade on the PPTX→Google Slides import, so charts are hand-drawn from `rect` / `ellipse` / `lineSeg`.
+
 If `reference-build.js` is not accessible in the current environment, paste the helpers from `references/build-helpers.md` §3. If that is also unavailable, use the verbatim fallback below.
 
 <details><summary>Verbatim helpers (fallback — use reference-build.js if available)</summary>

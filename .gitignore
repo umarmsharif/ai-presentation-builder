@@ -10,6 +10,7 @@ output/
 # build artifacts (regenerable)
 *.pptx
 *.pdf
+rb-*.png
 /tmp/
 qa/
 ai-presentation-builder.zip

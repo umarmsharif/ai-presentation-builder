@@ -1,6 +1,6 @@
 {
   "name": "ai-presentation-builder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Claude skill that builds consulting-grade strategy decks with a v5 Bright White & Pine design system.",
   "license": "MIT",
   "author": "Umar Sharif",

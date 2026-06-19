@@ -2,8 +2,9 @@
 /**
  * reference-build.js — a complete, render-tested pptxgenjs exemplar for the
  * ai-presentation-builder skill. It is the canonical implementation to copy blocks
- * out of: it defines the v5 Bright White & Pine tokens, the three layout helpers
- * (header / title / footer), and six load-bearing slide patterns.
+ * out of: it defines the v5 Bright White & Pine tokens, the layout helpers
+ * (header / title / footer + inkStrip / tintStrip / lineSeg), and eight
+ * load-bearing slide patterns.
  *
  * Scenario is fictional (Northwind, a SaaS company doing an activation review).
  * Swap inputs.json content in; keep the tokens, helpers, and pattern recipes.
@@ -14,14 +15,17 @@
  * Patterns exercised:
  *   1. title-bookend            (§2.1)
  *   2. stat-row                 (§2.3)
- *   3. diagnostic-three-panel   (numbered rows)
- *   4. hand-drawn ranking bars  (render-safe bar idiom — rects, no addChart)
- *   5. phased-roadmap           (timeline bands)
- *   6. closing-ask              (the one full-bleed ACCENT band the system allows)
+ *   3. dual-line trajectory     (§2.5 — hand-drawn lines, no addChart)
+ *   4. diagnostic-three-panel   (numbered rows)
+ *   5. hand-drawn ranking bars  (render-safe bar idiom — rects, no addChart)
+ *   6. phased-roadmap           (timeline bands)
+ *   7. raci-matrix              (§2.13 — theme-token cells, no emoji)
+ *   8. closing-ask              (the one full-bleed ACCENT band the system allows)
  *
  * Every coordinate honours the v5 anatomy: content starts at y≈2.55, nothing
- * crosses y+h ≤ 6.97, right edge ≤ 12.8, left margin 0.533. Bars are hand-drawn
- * rectangles (native addChart bars degrade on the PPTX→Google Slides import).
+ * crosses y+h ≤ 6.97, right edge ≤ 12.8, left margin 0.533. Charts are hand-drawn
+ * from rects / ellipses / line shapes — native addChart bars and scatter degrade
+ * on the PPTX→Google Slides import, so the exemplar never calls addChart.
  */
 
 const PptxGenJS = require("pptxgenjs");
@@ -57,7 +61,7 @@ const rect = pres.ShapeType.rect;
 const fillLine = (c) => ({ color: c }); // same-colour line = no visible border
 
 const CLIENT = "Northwind";
-const TOTAL = 6;
+const TOTAL = 8;
 
 // ── helpers (copy these verbatim into any build.js) ─────────────────────────
 function header(s, breadcrumb, num) {
@@ -105,6 +109,19 @@ function tintStrip(s, text, x, y, w, h, sz = 10) {
   });
 }
 
+// lineSeg — a render-safe diagonal line from (x1,y1) to (x2,y2). pptxgenjs draws
+// ShapeType.line corner-to-corner across its bounding box; flipV selects the
+// ascending diagonal. This is how the exemplar draws line charts without addChart
+// (native line/scatter series degrade on the PPTX→Google Slides import).
+function lineSeg(s, x1, y1, x2, y2, color, width = 2, dash = "solid") {
+  const x = Math.min(x1, x2), w = Math.abs(x2 - x1) || 0.001;
+  const y = Math.min(y1, y2), h = Math.abs(y2 - y1) || 0.001;
+  const leftY = x1 <= x2 ? y1 : y2, rightY = x1 <= x2 ? y2 : y1;
+  const opts = { x, y, w, h, line: { color, width, dashType: dash } };
+  if (leftY > rightY) opts.flipV = true; // left end sits lower on the slide → line ascends
+  s.addShape(pres.ShapeType.line, opts);
+}
+
 // ── 1. Title bookend ────────────────────────────────────────────────────────
 (() => {
   const s = pres.addSlide();
@@ -147,11 +164,57 @@ function tintStrip(s, text, x, y, w, h, sz = 10) {
   footer(s, "Source: product analytics, May 2026", 2);
 })();
 
-// ── 3. Diagnostic three-panel ────────────────────────────────────────────────
+// ── 3. Dual-line trajectory (hand-drawn lines — no addChart) ──────────────────
 (() => {
   const s = pres.addSlide();
   s.background = { color: SURFACE };
-  header(s, "THE DIAGNOSIS", 3);
+  header(s, "THE TRAJECTORY", 3);
+  title(s, "At today's pace we land at 850, not 3,000.", "The gap doesn't close on its own — it widens every month");
+
+  // plot frame: x spans the 6 time points, y maps 0..3,000 accounts
+  const px0 = 1.55, px1 = 10.6, pyb = 6.0, pyt = 2.95, vMax = 3000;
+  const months = ["May", "Jul", "Sep", "Nov", "Jan", "Mar"];
+  const xAt = (i) => px0 + i * (px1 - px0) / (months.length - 1);
+  const yAt = (v) => pyb - (v / vMax) * (pyb - pyt);
+
+  // y gridlines + labels — only 0 / 1,500 / 3,000 (no chart junk)
+  [0, 1500, 3000].forEach((v) => {
+    const y = yAt(v), zero = v === 0;
+    s.addShape(rect, { x: px0, y, w: px1 - px0, h: 0.008, fill: fillLine(zero ? MUTE : LINE), line: fillLine(zero ? MUTE : LINE) });
+    s.addText(v.toLocaleString(), { x: MX, y: y - 0.13, w: 0.92, h: 0.26, fontSize: 9.5, color: MUTE, fontFace: FONT, align: "right", valign: "middle" });
+  });
+  months.forEach((m, i) => s.addText(m, { x: xAt(i) - 0.4, y: pyb + 0.08, w: 0.8, h: 0.26, fontSize: 9.5, color: MUTE, fontFace: FONT, align: "center" }));
+
+  const required = [467, 974, 1480, 1987, 2493, 3000]; // linear path to target
+  const actual   = [467, 560, 645, 720, 790, 850];     // current pace, extrapolated
+  const series = (vals, color, width, dash) => {
+    for (let i = 0; i < vals.length - 1; i++) lineSeg(s, xAt(i), yAt(vals[i]), xAt(i + 1), yAt(vals[i + 1]), color, width, dash);
+    vals.forEach((v, i) => s.addShape(pres.ShapeType.ellipse, { x: xAt(i) - 0.055, y: yAt(v) - 0.055, w: 0.11, h: 0.11, fill: fillLine(color), line: fillLine(color) }));
+  };
+  series(required, MUTE, 1.5, "dash");  // the pace we needed — muted, dashed
+  series(actual, ACCENT, 2.75);          // where we're actually heading — the message → accent
+
+  // direct line labels, inline (no legend — only 2 series)
+  s.addText("Required pace", { x: xAt(3) - 0.6, y: yAt(2037) - 0.72, w: 2.2, h: 0.3, fontSize: 11, color: MUTE, fontFace: FONT, align: "center" });
+  s.addText("Current pace", { x: xAt(3) - 0.6, y: yAt(727) + 0.06, w: 2.2, h: 0.3, fontSize: 11, bold: true, color: ACCENT, fontFace: FONT, align: "center" });
+
+  // the gap — amber rule joining the two Mar endpoints + label
+  s.addShape(rect, { x: xAt(5) - 0.014, y: yAt(3000), w: 0.028, h: yAt(850) - yAt(3000), fill: fillLine(A), line: fillLine(A) });
+  s.addText([
+    { text: "2,150\n", options: { bold: true, fontSize: 15 } },
+    { text: "short", options: { fontSize: 11 } },
+  ], { x: px1 + 0.1, y: (yAt(3000) + yAt(850)) / 2 - 0.32, w: 1.9, h: 0.7, color: A, fontFace: FONT, valign: "middle" });
+
+  // primary takeaway → INK strip (dark fill = "this is the message", per the helper contract)
+  inkStrip(s, "The longer we wait, the steeper the catch-up: each month at current pace adds ~190 to the gap.", MX, 6.45, CW, 0.5, 12.5);
+  footer(s, "Source: product analytics May 2026; required = linear path to 3,000 by Mar 2027.", 3);
+})();
+
+// ── 4. Diagnostic three-panel ────────────────────────────────────────────────
+(() => {
+  const s = pres.addSlide();
+  s.background = { color: SURFACE };
+  header(s, "THE DIAGNOSIS", 4);
   title(s, "The gap is three compounding failures, not one.", "Why the funnel stalls before value lands");
   const rows = [
     { n: "1", head: "Day-1 drop is 93%", body: "Of 100 signups, 7 return on Day 2. The product's first-run never reaches the activation event." },
@@ -167,14 +230,14 @@ function tintStrip(s, text, x, y, w, h, sz = 10) {
     s.addText(d.body, { x: MX + 0.95, y: y + 0.46, w: 11.2, h: 0.7, fontSize: 12.5, color: BODY, fontFace: FONT });
     if (i < rows.length - 1) s.addShape(rect, { x: MX, y: y + rh - 0.12, w: CW, h: 0.01, fill: fillLine(LINE), line: fillLine(LINE) });
   });
-  footer(s, "Source: 30-cohort D2 retention + 192-day behavioural cohort", 3);
+  footer(s, "Source: 30-cohort D2 retention + 192-day behavioural cohort", 4);
 })();
 
-// ── 4. Hand-drawn ranking bars (render-safe bar idiom) ───────────────────────
+// ── 5. Hand-drawn ranking bars (render-safe bar idiom) ───────────────────────
 (() => {
   const s = pres.addSlide();
   s.background = { color: SURFACE };
-  header(s, "CORRELATION", 4);
+  header(s, "CORRELATION", 5);
   title(s, "We isolated the signal in a 192-day cohort.", "Three behaviours predict an 8x lift; the rest are noise");
   const data = [
     { label: "Completed onboarding checklist", val: 8.0, focus: true },
@@ -194,14 +257,14 @@ function tintStrip(s, text, x, y, w, h, sz = 10) {
     s.addText(`${d.val.toFixed(1)}x`, { x: axX + w + 0.12, y: yc, w: 1.0, h: 0.5, fontSize: 13.5, bold: true,
       color: d.focus ? ACCENT : MUTE, fontFace: FONT, valign: "middle" });
   });
-  footer(s, "Source: event analytics, 192-day window. Lift vs install-only baseline.", 4);
+  footer(s, "Source: event analytics, 192-day window. Lift vs install-only baseline.", 5);
 })();
 
-// ── 5. Phased roadmap (timeline bands) ───────────────────────────────────────
+// ── 6. Phased roadmap (timeline bands) ───────────────────────────────────────
 (() => {
   const s = pres.addSlide();
   s.background = { color: SURFACE };
-  header(s, "THE PLAN", 5);
+  header(s, "THE PLAN", 6);
   title(s, "Sequence the fix; don't run it all at once.", "A three-phase plan to close the gap by Q1");
   const gridX = 3.5, gridW = 9.0, y0 = 2.85, rowH = 1.18;
   const cols = ["Q3", "Q4", "Q1"];
@@ -227,10 +290,52 @@ function tintStrip(s, text, x, y, w, h, sz = 10) {
     { text: "THE SHIFT   ", options: { bold: true, color: ON_STRIP, fontSize: 11, charSpacing: 2 } },
     { text: "First measurable D2 lift by end of Q3; full close by Q1.", options: { color: ON_STRIP, fontSize: 13 } },
   ], { x: MX + 0.3, y: 6.45, w: CW - 0.6, h: 0.5, fontFace: FONT, valign: "middle" });
-  footer(s, "Phases sequenced by dependency, not by team availability.", 5);
+  footer(s, "Phases sequenced by dependency, not by team availability.", 6);
 })();
 
-// ── 6. Closing ask (the one full-bleed ACCENT band) ──────────────────────────
+// ── 7. RACI matrix (theme-token cells, no emoji — anti-slop) ──────────────────
+(() => {
+  const s = pres.addSlide();
+  s.background = { color: SURFACE };
+  header(s, "OWNERSHIP", 7);
+  title(s, "Every workstream has exactly one accountable owner.", "Who is Responsible, Accountable, Consulted, Informed");
+
+  const roles = ["Product", "Eng", "Growth", "Data", "Exec"];
+  const rows = [
+    { task: "Rebuild first-run",     cells: ["A", "R", "C", "I", "I"] },
+    { task: "Activation nudges",     cells: ["A", "C", "R", "C", "I"] },
+    { task: "Instrument events",     cells: ["C", "A", "I", "R", "—"] },
+    { task: "Assign session owner",  cells: ["C", "I", "C", "I", "A"] },
+    { task: "Weekly funnel review",  cells: ["R", "I", "C", "C", "A"] },
+  ];
+  // cell style by code — all theme tokens, so it holds across every theme
+  const styleFor = {
+    "A": { fill: ACCENT,  tx: ON_ACCENT, bold: true },   // accountable → the accent flag, one per row
+    "R": { fill: TINT,    tx: ACCENT_DK, bold: true },   // responsible → does the work
+    "C": { fill: PANEL,   tx: BODY,      bold: false },  // consulted
+    "I": { fill: SURFACE, tx: MUTE,      bold: false },  // informed → recedes
+    "—": { fill: SURFACE, tx: LINE,      bold: false },  // not involved
+  };
+  const labW = 3.0, y0 = 2.7, hh = 0.5, rh = 0.62;
+  const colW = (CW - labW) / roles.length;
+  roles.forEach((r, j) => s.addText(r, { x: MX + labW + j * colW, y: y0, w: colW, h: hh,
+    fontSize: 12, bold: true, color: INK, fontFace: FONT, align: "center", valign: "middle" }));
+  s.addShape(rect, { x: MX, y: y0 + hh, w: CW, h: 0.012, fill: fillLine(INK), line: fillLine(INK) });
+  rows.forEach((row, i) => {
+    const y = y0 + hh + 0.08 + i * rh;
+    s.addText(row.task, { x: MX, y, w: labW - 0.15, h: rh - 0.1, fontSize: 13, bold: true, color: INK, fontFace: FONT, valign: "middle" });
+    row.cells.forEach((c, j) => {
+      const x = MX + labW + j * colW, st = styleFor[c];
+      s.addShape(rect, { x: x + 0.05, y, w: colW - 0.1, h: rh - 0.1, fill: fillLine(st.fill), line: { color: LINE, width: 0.75 } });
+      s.addText(c, { x: x + 0.05, y, w: colW - 0.1, h: rh - 0.1, fontSize: 13, bold: st.bold, color: st.tx, fontFace: FONT, align: "center", valign: "middle" });
+    });
+  });
+  // legend → tintStrip (secondary/contextual, per the helper contract)
+  tintStrip(s, "A  Accountable (exactly one per row)        R  Responsible        C  Consulted        I  Informed", MX, 6.5, CW, 0.45, 10.5);
+  footer(s, "One A per row keeps accountability single-throat-to-choke.", 7);
+})();
+
+// ── 8. Closing ask (the one full-bleed ACCENT band) ──────────────────────────
 (() => {
   const s = pres.addSlide();
   s.background = { color: ACCENT };
