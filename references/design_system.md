@@ -39,11 +39,12 @@ The full token set per theme (`panel`, `line`, `mute`, `body`, `tint`, `tintBord
 
 ### Semantic tokens (what makes dark themes work)
 
-`INK` is the **text** colour (dark on light themes, light on dark). Four extra tokens carry what `INK`/`WH` used to hardcode, so a clean token swap is all a theme needs — no per-recipe rework:
+`INK` is the **text** colour (dark on light themes, light on dark). A few extra tokens carry what `INK`/`WH` used to hardcode, so a clean token swap is all a theme needs — no per-recipe rework:
 
 - `STRIP` / `ON_STRIP` — the emphasis-bar fill + its text. Light themes: near-black bar, white text. Dark themes: inverts to a light bar with dark text.
 - `ON_ACCENT` / `ON_ACCENT_MUTE` — text on an accent fill. White on the dark accents (pine/slate/oxblood/solarized/paper/mono), dark on the light accents (Ink's teal, Midnight's gold).
 - `MUTEFILL` — the muted/secondary bar fill (a neutral that reads on the theme's ground).
+- `STRIP_LABEL` — a *derived* token (not a per-theme field): an accent-coloured label set ON a `STRIP`/dark fill, computed from the accent by luminance (lightened on a dark strip, darkened on a light strip). Keeps a small accent tag legible on dark-accent themes like slate and oxblood, where a raw accent label would read dark-on-near-black. The build token block carries the formula.
 
 ### Fonts
 

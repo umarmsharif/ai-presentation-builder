@@ -92,6 +92,13 @@ const STRIP = T.strip, ON_STRIP = T.onStrip;                // emphasis bar fill
 const ON_ACCENT = T.onAccent, ON_ACCENT_MUTE = T.onAccentMute; // text on an ACCENT fill (white on dark accents, dark on light)
 const MUTEFILL = T.muteFill;                                // muted/secondary bar fill
 
+// Strip-label colour: a readable accent ON a STRIP/dark fill, robust across all 8 themes.
+// A raw ACCENT label fails on dark-accent light themes (slate, oxblood) where accent is close to the near-black strip.
+const _slHx = h => [0,2,4].map(i => parseInt(h.substr(i,2),16));
+const _slLum = h => { const c=_slHx(h); return 0.299*c[0]+0.587*c[1]+0.114*c[2]; };
+const _slMix = (h,t,a) => _slHx(h).map((v,i)=>Math.round(v+(_slHx(t)[i]-v)*a)).map(v=>v.toString(16).padStart(2,"0")).join("");
+const STRIP_LABEL = _slLum(STRIP) < 128 ? _slMix(ACCENT,"FFFFFF",0.55) : _slMix(ACCENT,"000000",0.30); // accent label on a STRIP fill
+
 // Theme-agnostic extras (unchanged)
 const LINE_SOFT = "E8E3D6", BG_3 = "F0EBE0";                // soft dividers, alternating rows
 const G = "2F7A55", A = "B07D2B", R = "B23A2E";             // semantic: good / amber / risk
@@ -107,6 +114,7 @@ const DISPLAY_BOLD = T.displayBold, FONT = "Manrope";
 **Dark-theme fills (one translation rule — applies to every recipe below).** Some recipes show an `INK` *fill* with `WH` text (emphasis strips, table/tier headers, dark cards, decision nodes) or an `ACCENT` *fill* with `WH`/`TINT` text (number badges, the closing band, chips). Those hardcodes break on the dark themes (`ink`, `midnight`), where `INK` is *light* text and the accents are light. The fix is mechanical — never fill with raw `INK`/`ACCENT` plus reversed `WH`/`TINT`; use the semantic tokens:
 - emphasis bar / table or tier header / dark card / decision node → `fill: STRIP`, text `ON_STRIP`. (Light themes: near-black bar, white text. Dark themes: it inverts to a light bar with dark text.)
 - anything filled with `ACCENT` → primary text `ON_ACCENT`, secondary text `ON_ACCENT_MUTE` (white on the dark accents; dark on Ink's teal and Midnight's gold).
+- an ACCENT-coloured *label* (small tracked caps) set on a `STRIP`/dark fill (a "SO WHAT", "THE ASK", or stage tag) → use `STRIP_LABEL`, not raw `ACCENT`. Raw accent is legible on the pine default but fails on dark-accent light themes (`slate`, `oxblood`), where the accent sits too close to the near-black strip. `STRIP_LABEL` lightens the accent on a dark strip and darkens it on a light strip, so it holds on all 8 themes.
 - muted / secondary bars → `MUTEFILL`, not a hardcoded grey.
 - a *semantic* colour (`G`/`A`/`R`) used as a large fill (a coloured cell, lane, or bar) → pick its text colour white-or-dark by that colour's own luminance, NOT `ON_ACCENT` (which is tuned to the theme accent). White reads on `R`/`A`; on the darker `G` use white too. Reserve `ON_ACCENT` for fills that are the theme `ACCENT`.
 
