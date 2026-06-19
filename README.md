@@ -45,7 +45,7 @@ npm run example          # writes reference-build.pptx
 **Claude Code**
 
 ```bash
-git clone https://github.com/<your-username>/ai-presentation-builder.git ~/.claude/skills/ai-presentation-builder
+git clone https://github.com/umarmsharif/ai-presentation-builder.git ~/.claude/skills/ai-presentation-builder
 cd ~/.claude/skills/ai-presentation-builder && npm install
 ```
 
